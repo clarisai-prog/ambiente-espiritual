@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Parte 2: Rotina que Liberta</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#c9a96e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --bg-color: #0f0f11;
+            --surface-color: #1a1a1d;
+            --surface-light: #252529;
+            --accent-color: #d4b483;--accent-dim: #8a7350;
+            --text-primary: #f2f2f2;
+            --text-secondary: #a1a1aa;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-serif {
+            font-family: 'Lora', serif;
+        }
+        .ios-statusbar {
+            height: 44px;
+            width: 100%;
+        }
+        .ios-home-indicator {
+            height: 34px;
+            width: 100%;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-center bg-black">
+<div class="w-full max-w-[390px] h-full min-h-screen bg-[var(--bg-color)] relative flex flex-col overflow-hidden shadow-2xl">
+<div class="ios-statusbar flex justify-between items-end px-6 pb-2 text-[var(--text-primary)] z-20 absolute top-0 w-full bg-gradient-to-b from-black/80 to-transparent">
+<span class="text-xs font-medium">9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<div class="relative w-full aspect-video bg-black z-10 shadow-lg sticky top-0">
+<img alt="Ambiente de Oração" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB84dFoPkWyYgrBn-RMFugEZgyid0qtG16YucTU8U4nXI2dAjiFF8LwyYITUbuSSdd6di9UmSwbXW8vOtxIHI5U8TeRyjUApE-IdRjRYSr8N4kTw3LZh-_T4VBdwYAJ7P1PwPiJsje_8lPJ92WhOiQ2gkCdYqAZeKl5JXF5tAZwvT_15U90DSD7cEF1h-K20-kq15Fl6jbIq3boghtHVJzaa19D1iJOxGRxBFJQD0iB3FmTP3i3rrcDUCx7HMY-iW4SsenuudJncK6M"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-[var(--accent-color)]/20 backdrop-blur-sm flex items-center justify-center border border-[var(--accent-color)]/40 cursor-pointer hover:bg-[var(--accent-color)]/30 transition">
+<span class="material-symbols-outlined text-white text-3xl fill-1 ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+<div class="h-full bg-[var(--accent-color)] w-1/3"></div>
+</div>
+<button class="absolute top-12 left-4 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-white text-lg">arrow_back</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar pb-24">
+<div class="px-6 pt-6 pb-2">
+<span class="uppercase tracking-widest text-[10px] text-[var(--accent-color)] font-medium mb-2 block">Parte 2</span>
+<h1 class="font-serif text-2xl text-[var(--text-primary)] leading-tight mb-2">A Rotina que Liberta</h1>
+<p class="text-[var(--text-secondary)] text-sm leading-relaxed">
+                    Sem rotina, a oração depende da "vontade", e a vontade falha. Aprenda a Regra das 3 Âncoras.
+                </p>
+</div>
+<hr class="border-white/5 my-4 mx-6"/>
+<section class="px-6 space-y-4">
+<h2 class="font-serif text-lg text-[var(--text-primary)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[var(--accent-color)] text-xl">anchor</span>
+                    A Regra das 3 Âncoras
+                </h2>
+<div class="grid gap-3">
+<div class="bg-[var(--surface-color)] p-4 rounded-xl border border-white/5 flex gap-4 items-start">
+<div class="bg-[var(--surface-light)] rounded-lg p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-[var(--accent-color)] text-xl">wb_sunny</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white mb-1">Âncora da Manhã</h3>
+<p class="text-xs text-[var(--text-secondary)] leading-snug">Logo ao acordar. Antes do celular. <br/><span class="text-[var(--accent-dim)]">5 minutos.</span></p>
+</div>
+</div>
+<div class="bg-[var(--surface-color)] p-4 rounded-xl border border-white/5 flex gap-4 items-start">
+<div class="bg-[var(--surface-light)] rounded-lg p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-[var(--accent-color)] text-xl">light_mode</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white mb-1">Âncora do Meio-dia</h3>
+<p class="text-xs text-[var(--text-secondary)] leading-snug">Uma pausa antes do almoço. <br/><span class="text-[var(--accent-dim)]">1 minuto.</span></p>
+</div>
+</div>
+<div class="bg-[var(--surface-color)] p-4 rounded-xl border border-white/5 flex gap-4 items-start">
+<div class="bg-[var(--surface-light)] rounded-lg p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-[var(--accent-color)] text-xl">bedtime</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-white mb-1">Âncora da Noite</h3>
+<p class="text-xs text-[var(--text-secondary)] leading-snug">Antes de dormir. <br/><span class="text-[var(--accent-dim)]">5 minutos.</span></p>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-8 px-6">
+<h3 class="font-serif text-lg text-[var(--text-primary)] mb-3">Como criar o hábito?</h3>
+<div class="bg-gradient-to-br from-[var(--surface-color)] to-[var(--surface-light)] p-5 rounded-xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-6xl">link</span>
+</div>
+<p class="text-sm text-[var(--text-secondary)] leading-relaxed italic border-l-2 border-[var(--accent-color)] pl-3 mb-3">
+                        "Depois de escovar os dentes, vou sentar no meu canto sagrado."
+                    </p>
+<p class="text-xs text-[var(--text-secondary)]">Conecte a nova rotina a um hábito que você já tem. A chave é a conexão.</p>
+</div>
+</section>
+<section class="mt-8 px-6">
+<div class="bg-[var(--surface-light)]/50 border border-red-900/30 rounded-xl p-5 relative">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-red-400 text-sm">emergency_home</span>
+<h3 class="text-xs font-bold uppercase tracking-widest text-red-400">Versão Mínima Viável</h3>
+</div>
+<p class="text-sm text-white mb-4">Para os dias de caos absoluto. Se você tem 60 segundos:</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-[var(--surface-color)] border border-white/10 flex items-center justify-center text-[10px] font-bold text-[var(--accent-color)]">1</span>
+<span class="text-sm text-[var(--text-secondary)]">Parar e respirar fundo.</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-[var(--surface-color)] border border-white/10 flex items-center justify-center text-[10px] font-bold text-[var(--accent-color)]">2</span>
+<span class="text-sm text-[var(--text-secondary)]">Ler UM versículo.</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-[var(--surface-color)] border border-white/10 flex items-center justify-center text-[10px] font-bold text-[var(--accent-color)]">3</span>
+<span class="text-sm text-[var(--text-secondary)]">Dizer: "Senhor, te entrego este caos. Fica comigo."</span>
+</li>
+</ul>
+</div>
+</section>
+<section class="mt-8 px-6 mb-8">
+<div class="bg-[var(--accent-color)] rounded-xl p-5 text-black shadow-lg shadow-[var(--accent-color)]/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-black fill-1">edit_square</span>
+<h3 class="font-serif font-bold text-lg">Ação Prática</h3>
+</div>
+<p class="text-sm font-medium opacity-90 mb-4 leading-snug">
+                        Defina AGORA seus horários e gatilhos. Pegue sua agenda ou celular.
+                    </p>
+<div class="space-y-2">
+<div class="bg-black/10 rounded-lg p-3 backdrop-blur-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold uppercase tracking-wider opacity-70">Manhã</span>
+<span class="material-symbols-outlined text-[16px] opacity-50">schedule</span>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-black/20 p-0 text-sm placeholder-black/40 focus:ring-0 focus:border-black/50 text-black" placeholder="Ex: 7h, após o café" type="text"/>
+</div>
+<div class="bg-black/10 rounded-lg p-3 backdrop-blur-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold uppercase tracking-wider opacity-70">Noite</span>
+<span class="material-symbols-outlined text-[16px] opacity-50">schedule</span>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-black/20 p-0 text-sm placeholder-black/40 focus:ring-0 focus:border-black/50 text-black" placeholder="Ex: 22h, após escovar dentes" type="text"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="absolute bottom-0 w-full bg-[var(--surface-color)] border-t border-white/5 px-6 pt-4 pb-8 backdrop-blur-lg bg-opacity-95 z-20">
+<div class="flex justify-between items-center">
+<button class="text-[var(--text-secondary)] hover:text-white flex items-center gap-1 text-sm transition">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                    Anterior
+                </button>
+<span class="text-xs font-medium text-[var(--text-secondary)] tracking-widest">3 / 5</span>
+<button class="bg-[var(--accent-color)] text-black px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-1 shadow-md shadow-[var(--accent-color)]/20 hover:bg-white transition">
+                    Próximo
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<div class="ios-home-indicator flex justify-center items-end pb-1">
+<div class="w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</div>
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('SW ok:', reg.scope))
+        .catch(err => console.error('SW error:', err));
+    });
+  }
+</script>
+</body></html>
