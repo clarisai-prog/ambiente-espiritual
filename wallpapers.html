@@ -1,345 +1,172 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-    <title>Wallpapers - Ambiente Espiritual</title>
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#c9a96e">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
-    <link rel="stylesheet" href="./design-tokens.css">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <style>
-        body { background-color: var(--color-bg-light); color: var(--color-text-dark); }
-        .wallpaper-card { position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 9/16; cursor: pointer; transition: all 0.3s ease; }
-        .wallpaper-card:hover { transform: scale(1.02); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
-        .wallpaper-card img { width: 100%; height: 100%; object-fit: cover; }
-        .wallpaper-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(25,32,51,0.8)); display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; opacity: 0; transition: opacity 0.3s ease; }
-        .wallpaper-card:hover .wallpaper-overlay { opacity: 1; }
-        .wallpaper-overlay button { background: var(--color-primary-gold); color: var(--color-primary-navy); padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 12px; border: none; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 4px; }
-        .wallpaper-overlay button:hover { background: var(--color-secondary-blush); color: var(--color-primary-navy); }
-    </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Wallpapers - Ambiente Espiritual</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#F5F2E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    .wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); }
+    @media (min-width: 768px) {
+      .wallpaper-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .wallpaper-card { position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 9/16; background: var(--c-azul-marinho); box-shadow: var(--shadow-md); transition: all var(--transition-base); }
+    .wallpaper-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .wallpaper-card img { width: 100%; height: 100%; object-fit: cover; }
+    .verse-card { padding: var(--spacing-md); background: linear-gradient(135deg, rgba(200,176,138,0.1) 0%, rgba(238,191,184,0.05) 100%); border: 1px solid rgba(200,176,138,0.3); border-radius: var(--radius-lg); margin-bottom: var(--spacing-md); }
+    .verse-text { font-style: italic; color: var(--c-azul-marinho); margin-bottom: var(--spacing-sm); }
+  </style>
 </head>
-<body class="antialiased pb-20">
-    <div class="min-h-screen flex flex-col">
-        <!-- Header -->
-        <header class="sticky top-0 z-40 bg-[var(--light-bg)]/95 backdrop-blur-sm border-b border-[var(--secondary-color)]/20 px-6 py-4">
-            <div class="flex items-center justify-between">
-                <button class="p-2 -ml-2 rounded-full hover:bg-[var(--secondary-color)]/20 transition-colors" onclick="window.location='./index.html'">
-                    <span class="material-symbols-outlined text-[var(--primary-color)]">arrow_back</span>
-                </button>
-                <h1 class="text-lg font-bold text-[var(--primary-color)]">Wallpapers</h1>
-                <div class="w-10"></div>
-            </div>
-        </header>
-
-        <!-- Content -->
-        <main class="flex-1 px-4 py-6 max-w-4xl mx-auto w-full">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-[var(--primary-color)] mb-2">Inspiração Diária</h2>
-                <p class="text-gray-600">Baixe wallpapers para sua tela de bloqueio e fundo</p>
-            </div>
-
-            <!-- Filter Tabs -->
-            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
-                <button class="filter-tab px-4 py-2 rounded-full bg-[var(--primary-color)] text-white font-semibold whitespace-nowrap" data-filter="all">
-                    Todos
-                </button>
-                <button class="filter-tab px-4 py-2 rounded-full bg-gray-200 text-[var(--primary-color)] font-semibold whitespace-nowrap" data-filter="phone">
-                    Mobile
-                </button>
-                <button class="filter-tab px-4 py-2 rounded-full bg-gray-200 text-[var(--primary-color)] font-semibold whitespace-nowrap" data-filter="tablet">
-                    Tablet
-                </button>
-                <button class="filter-tab px-4 py-2 rounded-full bg-gray-200 text-[var(--primary-color)] font-semibold whitespace-nowrap" data-filter="desktop">
-                    Desktop
-                </button>
-            </div>
-
-            <!-- Wallpapers Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Phone Wallpapers (9:16) -->
-                <div class="wallpaper-card" data-category="phone">
-                    <img alt="Oração ao amanhecer" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=700&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Oracao_Amanhecer.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Mobile
-                        </button>
-                    </div>
-                </div>
-
-                <div class="wallpaper-card" data-category="phone">
-                    <img alt="Bíblia aberta" src="https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=700&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Biblia_Aberta.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Mobile
-                        </button>
-                    </div>
-                </div>
-
-                <div class="wallpaper-card" data-category="phone">
-                    <img alt="Vela e oração" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=700&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Vela_Oracao.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Mobile
-                        </button>
-                    </div>
-                </div>
-
-                <div class="wallpaper-card" data-category="phone">
-                    <img alt="Reflexão espiritual" src="https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=400&h=700&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Reflexao_Espiritual.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Mobile
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Tablet Wallpapers (4:5) -->
-                <div class="wallpaper-card col-span-1 md:col-span-1" data-category="tablet">
-                    <img alt="Natureza e fé" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=750&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Natureza_Fe.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Tablet
-                        </button>
-                    </div>
-                </div>
-
-                <div class="wallpaper-card col-span-1 md:col-span-1" data-category="tablet">
-                    <img alt="Luz divina" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=750&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Luz_Divina.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Tablet
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Desktop Wallpapers (16:9) -->
-                <div class="wallpaper-card col-span-2 md:col-span-2" data-category="desktop">
-                    <img alt="Paisagem serena" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&h=506&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Paisagem_Serena.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Desktop
-                        </button>
-                    </div>
-                </div>
-
-                <div class="wallpaper-card col-span-2 md:col-span-2" data-category="desktop">
-                    <img alt="Céu estrelado" src="https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=900&h=506&fit=crop"/>
-                    <div class="wallpaper-overlay">
-                        <button onclick="downloadWallpaper('Ceu_Estrelado.jpg', this)">
-                            <span class="material-symbols-outlined text-sm">download</span>
-                            Desktop
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Frases e Versículos -->
-            <div class="mt-12">
-                <h2 class="text-2xl font-bold text-[var(--primary-color)] mb-6 text-center">Frases e Versículos para Compartilhar</h2>
-                
-                <!-- Foco no Recomeço -->
-                <div class="mb-8">
-                    <h3 class="font-semibold text-[var(--primary-color)] text-lg mb-4 flex items-center gap-2">
-                        <span class="material-symbols-outlined">wb_sunny</span>
-                        Foco no Recomeço
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Ainda assim, agora mesmo."</p>
-                            <p class="text-center text-xs opacity-80">Joel 2:12</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Ainda assim, agora mesmo. - Joel 2:12')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Minha misericórdia se renova hoje."</p>
-                            <p class="text-center text-xs opacity-80">Lamentações 3:23</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Minha misericórdia se renova hoje. - Lamentações 3:23')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Hoje eu começo de novo."</p>
-                            <p class="text-center text-xs opacity-80">Reflexão Pessoal</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Hoje eu começo de novo.')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Deus não faz chamada."</p>
-                            <p class="text-center text-xs opacity-80">Reflexão Pessoal</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Deus não faz chamada.')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Foco nos Pilares -->
-                <div class="mb-8">
-                    <h3 class="font-semibold text-[var(--primary-color)] text-lg mb-4 flex items-center gap-2">
-                        <span class="material-symbols-outlined">favorite</span>
-                        Foco nos Pilares
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-gradient-to-br from-[#8B4513] to-[#654321] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Não só de pão."</p>
-                            <p class="text-center text-xs opacity-80">Mateus 4:4</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Não só de pão. - Mateus 4:4')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-[#8B4513] to-[#654321] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Ora a teu Pai em segredo."</p>
-                            <p class="text-center text-xs opacity-80">Mateus 6:6</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Ora a teu Pai em segredo. - Mateus 6:6')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-[#8B4513] to-[#654321] rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Alegria em dar."</p>
-                            <p class="text-center text-xs opacity-80">2 Coríntios 9:7</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Alegria em dar. - 2 Coríntios 9:7')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Foco na Atitude Interior -->
-                <div class="mb-8">
-                    <h3 class="font-semibold text-[var(--primary-color)] text-lg mb-4 flex items-center gap-2">
-                        <span class="material-symbols-outlined">self_improvement</span>
-                        Foco na Atitude Interior
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Rasgai o coração, não as vestes."</p>
-                            <p class="text-center text-xs opacity-80">Joel 2:13</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Rasgai o coração, não as vestes. - Joel 2:13')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Cria em mim um coração puro."</p>
-                            <p class="text-center text-xs opacity-80">Salmo 51:12</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Cria em mim um coração puro. - Salmo 51:12')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                        <div class="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg p-6 text-white shadow-lg">
-                            <p class="text-center text-lg font-serif italic mb-2">"Senhor, fica comigo."</p>
-                            <p class="text-center text-xs opacity-80">Reflexão Pessoal</p>
-                            <button class="w-full mt-3 bg-white/20 hover:bg-white/30 text-white text-xs py-2 rounded transition" onclick="copyToClipboard('Senhor, fica comigo.')">
-                                <span class="material-symbols-outlined text-sm">content_copy</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Info Box -->
-            <div class="mt-12 p-6 bg-[var(--secondary-color)]/20 rounded-lg border border-[var(--secondary-color)]">
-                <h3 class="font-bold text-[var(--primary-color)] mb-3 flex items-center gap-2">
-                    <span class="material-symbols-outlined">info</span>
-                    Dica: Como usar wallpapers
-                </h3>
-                <ul class="text-sm text-gray-700 space-y-2">
-                    <li><strong>Android:</strong> Configurações → Tela de bloqueio → Fundo de tela</li>
-                    <li><strong>iOS:</strong> Configurações → Tela de bloqueio → Personalizar</li>
-                    <li><strong>Desktop:</strong> Clique direito na imagem → Definir como papel de parede</li>
-                </ul>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-[var(--secondary-color)]/20 p-4 z-50">
-            <button class="w-full py-3 px-4 rounded-lg bg-[var(--primary-color)] text-white font-bold text-sm hover:bg-[var(--accent-color)] transition-colors flex items-center justify-center gap-2" onclick="window.location='./index.html'">
-                <span class="material-symbols-outlined">arrow_back</span>
-                Voltar
-            </button>
-        </footer>
+<body>
+  <main class="app-container">
+    <!-- Header -->
+    <div class="mb-xl">
+      <h1>Wallpapers & Versículos</h1>
+      <p class="text-apoio">Inspiração visual e espiritual para cada dia</p>
     </div>
 
-    <script>
-        // Filter functionality
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                const filter = this.dataset.filter;
-                
-                // Update active tab
-                document.querySelectorAll('.filter-tab').forEach(t => {
-                    t.classList.remove('bg-[var(--primary-color)]', 'text-white');
-                    t.classList.add('bg-gray-200', 'text-[var(--primary-color)]');
-                });
-                this.classList.add('bg-[var(--primary-color)]', 'text-white');
-                this.classList.remove('bg-gray-200', 'text-[var(--primary-color)]');
-                
-                // Filter cards
-                document.querySelectorAll('.wallpaper-card').forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+    <!-- Galeria de Wallpapers -->
+    <div class="card-elohim">
+      <h3>Galeria de Wallpapers</h3>
+      <p class="text-apoio" style="margin-bottom: var(--spacing-lg);">Imagens para colocar como fundo da tela do seu celular, tablet ou computador.</p>
+      
+      <div class="wallpaper-grid">
+        <!-- Wallpaper 1 -->
+        <div class="wallpaper-card">
+          <svg viewBox="0 0 200 300" style="width: 100%; height: 100%;">
+            <rect width="200" height="300" fill="#1A2238"/>
+            <circle cx="100" cy="80" r="40" fill="#C8B08A" opacity="0.8"/>
+            <text x="100" y="200" text-anchor="middle" fill="#F5F2E9" font-size="16" font-family="serif">Canto Sagrado</text>
+          </svg>
+          <button class="btn btn-small btn-primario" style="position: absolute; bottom: var(--spacing-md); left: var(--spacing-md); right: var(--spacing-md);" onclick="downloadWallpaper('wallpaper1')">
+            <span class="material-symbols-outlined">download</span> Download
+          </button>
+        </div>
 
-        // Copy to clipboard functionality
-        function copyToClipboard(text) {
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('✓ Frase copiada para a área de transferência!');
-                }).catch(() => {
-                    fallbackCopyToClipboard(text);
-                });
-            } else {
-                fallbackCopyToClipboard(text);
-            }
-        }
+        <!-- Wallpaper 2 -->
+        <div class="wallpaper-card">
+          <svg viewBox="0 0 200 300" style="width: 100%; height: 100%;">
+            <rect width="200" height="300" fill="#F5F2E9"/>
+            <circle cx="100" cy="100" r="50" fill="#1A2238" opacity="0.3"/>
+            <text x="100" y="200" text-anchor="middle" fill="#1A2238" font-size="14" font-family="serif">Rotina que Liberta</text>
+          </svg>
+          <button class="btn btn-small btn-primario" style="position: absolute; bottom: var(--spacing-md); left: var(--spacing-md); right: var(--spacing-md);" onclick="downloadWallpaper('wallpaper2')">
+            <span class="material-symbols-outlined">download</span>Download
+          </button>
+        </div>
 
-        function fallbackCopyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            alert('✓ Frase copiada para a área de transferência!');
-        }
+        <!-- Wallpaper 3 -->
+        <div class="wallpaper-card">
+          <svg viewBox="0 0 200 300" style="width: 100%; height: 100%;">
+            <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#EEBFB8"/><stop offset="100%" style="stop-color:#C8B08A"/></linearGradient></defs>
+            <rect width="200" height="300" fill="url(#grad)"/>
+            <text x="100" y="150" text-anchor="middle" fill="#1A2238" font-size="14" font-family="serif">Celular a Favor</text>
+          </svg>
+          <button class="btn btn-small btn-primario" style="position: absolute; bottom: var(--spacing-md); left: var(--spacing-md); right: var(--spacing-md);" onclick="downloadWallpaper('wallpaper3')">
+            <span class="material-symbols-outlined">download</span> Download
+          </button>
+        </div>
+      </div>
+    </div>
 
-        // Download functionality
-        function downloadWallpaper(filename, button) {
-            const img = button.parentElement.parentElement.querySelector('img');
-            const link = document.createElement('a');
-            link.href = img.src;
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+    <!-- Versículos -->
+    <div class="card-elohim">
+      <h3>Frases e Versículos</h3>
+      <p class="text-apoio" style="margin-bottom: var(--spacing-lg);">Palavras de inspiração para compartilhar e refletir.</p>
 
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(reg => console.log('SW ok:', reg.scope))
-                    .catch(err => console.error('SW error:', err));
-            });
-        }
-    </script>
+      <!-- Seção 1 -->
+      <h4 style="color: var(--c-azul-marinho); margin: var(--spacing-lg) 0 var(--spacing-md) 0;">Foco no Recomeço</h4>
+      <div class="verse-card">
+        <p class="verse-text">"Voltai para mim, e eu vos salvarei."</p>
+        <p style="font-size: 0.875rem; color: var(--c-texto-apoio); margin: 0;">Joel 2:12</p>
+        <button class="btn btn-small btn-primario" style="width: 100%; margin-top: var(--spacing-sm);" onclick="copyToClipboard('Voltai para mim, e eu vos salvarei. - Joel 2:12')">
+          <span class="material-symbols-outlined">content_copy</span> Copiar
+        </button>
+      </div>
+
+      <div class="verse-card">
+        <p class="verse-text">"As misericórdias do Senhor são novas cada manhã."</p>
+        <p style="font-size: 0.875rem; color: var(--c-texto-apoio); margin: 0;">Lamentações 3:23</p>
+        <button class="btn btn-small btn-primario" style="width: 100%; margin-top: var(--spacing-sm);" onclick="copyToClipboard('As misericórdias do Senhor são novas cada manhã. - Lamentações 3:23')">
+          <span class="material-symbols-outlined">content_copy</span> Copiar
+        </button>
+      </div>
+
+      <!-- Seção 2 -->
+      <h4 style="color: var(--c-azul-marinho); margin: var(--spacing-lg) 0 var(--spacing-md) 0;">Foco nos Pilares</h4>
+      <div class="verse-card">
+        <p class="verse-text">"Nem só de pão viverá o homem, mas de toda palavra que procede da boca de Deus."</p>
+        <p style="font-size: 0.875rem; color: var(--c-texto-apoio); margin: 0;">Mateus 4:4</p>
+        <button class="btn btn-small btn-primario" style="width: 100%; margin-top: var(--spacing-sm);" onclick="copyToClipboard('Nem só de pão viverá o homem, mas de toda palavra que procede da boca de Deus. - Mateus 4:4')">
+          <span class="material-symbols-outlined">content_copy</span> Copiar
+        </button>
+      </div>
+
+      <div class="verse-card">
+        <p class="verse-text">"Bem-aventurados os puros de coração, porque verão a Deus."</p>
+        <p style="font-size: 0.875rem; color: var(--c-texto-apoio); margin: 0;">Mateus 5:8</p>
+        <button class="btn btn-small btn-primario" style="width: 100%; margin-top: var(--spacing-sm);" onclick="copyToClipboard('Bem-aventurados os puros de coração, porque verão a Deus. - Mateus 5:8')">
+          <span class="material-symbols-outlined">content_copy</span> Copiar
+        </button>
+      </div>
+
+      <!-- Seção 3 -->
+      <h4 style="color: var(--c-azul-marinho); margin: var(--spacing-lg) 0 var(--spacing-md) 0;">Foco na Atitude Interior</h4>
+      <div class="verse-card">
+        <p class="verse-text">"Cria em mim, ó Deus, um coração puro e renova em mim um espírito reto."</p>
+        <p style="font-size: 0.875rem; color: var(--c-texto-apoio); margin: 0;">Salmos 51:10</p>
+        <button class="btn btn-small btn-primario" style="width: 100%; margin-top: var(--spacing-sm);" onclick="copyToClipboard('Cria em mim, ó Deus, um coração puro e renova em mim um espírito reto. - Salmos 51:10')">
+          <span class="material-symbols-outlined">content_copy</span> Copiar
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-bar">
+    <button class="btn btn-secundario" onclick="window.location='./checklist.html'">
+      <span class="material-symbols-outlined">arrow_back</span> Anterior
+    </button>
+    <button class="btn btn-primario" onclick="window.location='./index.html'">
+      <span class="material-symbols-outlined">home</span> Capa
+    </button>
+  </nav>
+
+  <script>
+    function copyToClipboard(text) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('✓ Versículo copiado!');
+        }).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('✓ Versículo copiado!');
+    }
+
+    function downloadWallpaper(id) {
+      alert('Download de ' + id + ' iniciado!');
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
 </body>
 </html>
