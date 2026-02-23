@@ -104,6 +104,20 @@
   </nav>
 
   <script>
+    // 🧹 LIMPEZA AGRESSIVA v4 ao carregar
+    (async function aggressiveClearup() {
+      try {
+        const cacheNames = await caches.keys();
+        for (const name of cacheNames) {
+          if (name !== 'ambiente-espiritual-v4') {
+            await caches.delete(name);
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao limpar cache:', error);
+      }
+    })();
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('message', (event) => {
         if (event.data.type === 'CACHE_CLEARED') {

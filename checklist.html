@@ -104,6 +104,20 @@
   </nav>
 
   <script>
+    // 🧹 LIMPEZA AGRESSIVA v4 ao carregar checklist
+    (async function aggressiveClearup() {
+      try {
+        const cacheNames = await caches.keys();
+        for (const name of cacheNames) {
+          if (name !== 'ambiente-espiritual-v4') {
+            await caches.delete(name);
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao limpar cache:', error);
+      }
+    })();
+
     const STORAGE_KEY = 'ambiente-espiritual-checklist';
 
     // Atualizar progress bar
@@ -152,10 +166,20 @@
 
     // Limpar progresso
     function limparProgresso() {
-      if (confirm('Tem certeza que deseja limpar o progresso?')) {
+      if (confirm('Tem certeza que deseja limpar o progresso? Esta ação não pode ser desfeita.')) {
         document.querySelectorAll('.checklist-checkbox').forEach(cb => cb.checked = false);
         localStorage.removeItem(STORAGE_KEY);
+        
+        // Limpar também qualquer localStorage antigas
+        const allKeys = Object.keys(localStorage);
+        allKeys.forEach(key => {
+          if (key.includes('checklist') || key.includes('ambiente')) {
+            localStorage.removeItem(key);
+          }
+        });
+        
         atualizarProgresso();
+        console.log('✅ Progresso completamente limpo');
       }
     }
 

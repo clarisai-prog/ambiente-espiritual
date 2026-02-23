@@ -1,7 +1,7 @@
-const CACHE_NAME = 'ambiente-espiritual-v3';
+const CACHE_NAME = 'ambiente-espiritual-v4';
 
 // Lista de versões antigas para limpeza agressiva
-const OLD_CACHE_VERSIONS = ['ambiente-espiritual-v1', 'ambiente-espiritual-v2', 'ambiente-espiritual-v0'];
+const OLD_CACHE_VERSIONS = ['ambiente-espiritual-v1', 'ambiente-espiritual-v2', 'ambiente-espiritual-v0', 'ambiente-espiritual-v3'];
 
 const ASSETS_TO_CACHE = [
   './',

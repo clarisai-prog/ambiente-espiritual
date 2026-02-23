@@ -60,6 +60,19 @@
         <li>✓ Revisar e Consolidar seu Aprendizado</li>
       </ul>
     </div>
+
+    <!-- Ações Principais -->
+    <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: 80px;">
+      <button class="btn btn-primario" style="width: 100%;" onclick="window.location='./parte-2.html'">
+        Iniciar Tutorial →
+      </button>
+      <button class="btn btn-secundario" style="width: 100%;" onclick="window.location='./checklist.html'">
+        <span class="material-symbols-outlined">checklist</span> Meu Progresso
+      </button>
+      <button class="btn btn-secundario" style="width: 100%;" onclick="window.location='./wallpapers.html'">
+        <span class="material-symbols-outlined">image</span> Inspiração
+      </button>
+    </div>
   </main>
 
   <!-- Bottom Navigation Bar -->
@@ -73,40 +86,90 @@
   </nav>
 
   <script>
-    // 🧹 LIMPEZA AGRESSIVA
-    (async function clearOldCache() {
+    // 🧹 LIMPEZA AGRESSIVA: Cache + localStorage + dados antigos
+    (async function aggressiveClearup() {
+      console.log('🧹 == INICIANDO LIMPEZA AGRESSIVA v4 == 🧹');
+      
+      // 1. Limpar TODOS os caches antigos
       try {
         const cacheNames = await caches.keys();
         console.log('📦 Caches encontrados:', cacheNames);
         
-        const oldCaches = cacheNames.filter(name => 
-          name.includes('ambiente-espiritual') && !name.includes('v3')
-        );
+        for (const name of cacheNames) {
+          if (name !== 'ambiente-espiritual-v4') {
+            console.log('🗑️ Deletando cache:', name);
+            await caches.delete(name);
+          }
+        }
+        console.log('✅ Todos os caches antigos removidos!');
+      } catch (error) {
+        console.error('❌ Erro ao limpar cache:', error);
+      }
+      
+      // 2. Limpar localStorage desatualizado
+      try {
+        const keysToRemove = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          // Manter apenas o checklist moderno
+          if (key !== 'ambiente-espiritual-checklist') {
+            keysToRemove.push(key);
+          }
+        }
         
-        if (oldCaches.length > 0) {
-          console.log('🧹 Limpando caches antigos:', oldCaches);
-          await Promise.all(oldCaches.map(name => caches.delete(name)));
-          console.log('✅ Caches antigos removidos!');
+        keysToRemove.forEach(key => {
+          console.log('🗑️ Removendo localStorage:', key);
+          localStorage.removeItem(key);
+        });
+        
+        if (keysToRemove.length > 0) {
+          console.log('✅ localStorage limpo:', keysToRemove.length, 'itens removidos');
         }
       } catch (error) {
-        console.error('Erro ao limpar cache:', error);
+        console.error('❌ Erro ao limpar localStorage:', error);
       }
+      
+      // 3. Limpar IndexedDB (se existir de versões antigas)
+      try {
+        if (window.indexedDB) {
+          const dbs = await indexedDB.databases?.() || [];
+          dbs.forEach(db => {
+            if (db.name.includes('ambiente')) {
+              indexedDB.deleteDatabase(db.name);
+              console.log('🗑️ Deletando IndexedDB:', db.name);
+            }
+          });
+        }
+      } catch (error) {
+        console.log('ℹ️ IndexedDB cleanup não ativado:', error.message);
+      }
+      
+      console.log('✨ == LIMPEZA v4 CONCLUÍDA == ✨');
     })();
 
+    // Registrar Service Worker com verificação de atualização
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('message', (event) => {
         if (event.data.type === 'CACHE_CLEARED') {
-          console.log('✨ Service Worker:', event.data.message);
+          console.log('📢 Service Worker:', event.data.message);
         }
       });
       
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('./service-worker.js')
           .then(reg => {
-            console.log('✅ Service Worker registrado:', reg.scope);
-            setInterval(() => { reg.update(); }, 5 * 60 * 1000);
+            console.log('✅ Service Worker v4 registrado');
+            
+            // Verificar atualizações a cada 1 minuto (em vez de 5)
+            setInterval(() => {
+              console.log('🔄 Verificando atualizações...');
+              reg.update();
+            }, 1 * 60 * 1000);
+            
+            // Atualizar imediatamente ao carregar
+            reg.update();
           })
-          .catch(err => console.error('❌ Erro:', err));
+          .catch(err => console.error('❌ Erro no Service Worker:', err));
       });
     }
   </script>
