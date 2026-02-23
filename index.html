@@ -1,81 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ambiente Espiritual - Capa</title>
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#c9a96e">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<link rel="stylesheet" href="./design-tokens.css">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
- body { background: var(--color-primary-navy); color: var(--color-bg-white); }
- .glass-button { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
- .text-gold-gradient { color: var(--color-primary-gold); }
-</style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Ambiente Espiritual - Capa</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#F5F2E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <main class="app-container">
+    <!-- Header com Progresso -->
+    <div class="text-center mb mb-xl">
+      <h1>Ambiente Espiritual</h1>
+      <p class="text-apoio">Arrume a Casa para Deus Entrar</p>
+      <div class="progress-container mt">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 20%"></div>
+        </div>
+        <p class="progress-text">1 de 5 etapas</p>
+      </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="card-elohim">
+      <p class="text-apoio">
+        "Muitas vezes, nossa vida de oração não avança por um motivo simples: o ambiente não ajuda. A casa está barulhenta, o celular não para de apitar, não temos um lugar para ficar em silêncio."
+      </p>
+      <p style="margin-top: var(--spacing-md); font-weight: 600;">
+        Hoje vamos resolver isso juntos.
+      </p>
+    </div>
+
+    <!-- Vídeo Introdutório -->
+    <div class="card-elohim">
+      <div style="aspect-ratio: 16/9; background: var(--c-azul-marinho); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-md);">
+        <span class="material-symbols-outlined" style="font-size: 64px; color: var(--c-dourado-suave);">play_circle</span>
+      </div>
+      <p style="font-size: 0.875rem; color: var(--c-texto-apoio);">
+        <strong>Introdução</strong> • 01:00
+      </p>
+    </div>
+
+    <!-- Informações Gerais -->
+    <div class="card-elohim">
+      <h3 style="color: var(--c-azul-marinho); font-size: 1.5rem;">Sobre este guia</h3>
+      <p class="text-apoio">
+        Um programa prático e espiritual de 5 etapas para transformar seu espaço e sua rotina em um santuário de oração. Através de técnicas simples e reflexões profundas, você aprenderá a:
+      </p>
+      <ul style="color: var(--c-texto-apoio); margin-left: 1.5rem; margin-bottom: var(--spacing-md);">
+        <li>✓ Preparar um Canto Sagrado dedicado à oração</li>
+        <li>✓ Estabelecer uma Rotina que Liberta</li>
+        <li>✓ Usar o Celular a Favor da Espiritualidade</li>
+        <li>✓ Revisar e Consolidar seu Aprendizado</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-bar">
+    <button class="btn btn-secundario" onclick="window.location='./index.html'">
+      <span class="material-symbols-outlined">home</span> Capa
+    </button>
+    <button class="btn btn-primario" onclick="window.location='./parte-2.html'">
+      Iniciar <span class="material-symbols-outlined">arrow_forward</span>
+    </button>
+  </nav>
+
+  <script>
+    // 🧹 LIMPEZA AGRESSIVA
+    (async function clearOldCache() {
+      try {
+        const cacheNames = await caches.keys();
+        console.log('📦 Caches encontrados:', cacheNames);
+        
+        const oldCaches = cacheNames.filter(name => 
+          name.includes('ambiente-espiritual') && !name.includes('v3')
+        );
+        
+        if (oldCaches.length > 0) {
+          console.log('🧹 Limpando caches antigos:', oldCaches);
+          await Promise.all(oldCaches.map(name => caches.delete(name)));
+          console.log('✅ Caches antigos removidos!');
+        }
+      } catch (error) {
+        console.error('Erro ao limpar cache:', error);
+      }
+    })();
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data.type === 'CACHE_CLEARED') {
+          console.log('✨ Service Worker:', event.data.message);
+        }
+      });
+      
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => {
+            console.log('✅ Service Worker registrado:', reg.scope);
+            setInterval(() => { reg.update(); }, 5 * 60 * 1000);
+          })
+          .catch(err => console.error('❌ Erro:', err));
+      });
     }
-  </style>
-  </head>
-<body class="bg-[var(--charcoal-dark)] text-white h-screen w-full overflow-hidden relative">
-<div class="absolute inset-0 w-full h-full z-0">
-<img alt="Ambiente sereno com luz do sol e bíblia" class="w-full h-full object-cover object-center opacity-80 mix-blend-overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzzc_s64wSLMY6QGm-ud0T3mzPqR0fqQpuDQU152iv9iY6-Q6lY61n8tx37zh9Kg_cj0IOvqGRXtNXeX80PZBt6VgdLldRgoMUKq3J3-ZpPQ5ptjWEmZnc0zKRmqicSuW9rO6sKAybnwAp-i3WzwJoJIzNGdSRMl_zocQsVMdVWYTC8LRt-EU1jYvv5e3Enx_1IHESGZKV5RvxfkFBJRrTmioxWdsBiqA5hFHveOh4oH8pqcLigkWFCleuHIVBnn7hYC654FItbs27"/>
-<div class="absolute inset-0 bg-gradient-to-b from-[var(--charcoal-dark)] via-transparent to-[var(--charcoal-dark)] opacity-90"></div>
-<div class="absolute inset-0 bg-black/40"></div>
-</div>
-<main class="relative z-10 h-full flex flex-col justify-between px-6 py-10 safe-area-inset-bottom">
-<div class="flex justify-between items-center pt-2 opacity-80">
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[18px] text-[var(--gold-light)]">church</span>
-<span class="text-xs tracking-widest uppercase font-light">Guia de Estudo</span>
-</div>
-<span class="text-xs font-light tracking-widest bg-white/10 px-3 py-1 rounded-full border border-white/10">1 / 5</span>
-</div>
-<div class="flex flex-col items-center text-center mt-10 space-y-4">
-<div class="w-12 h-[1px] bg-[var(--gold-primary)] mb-2"></div>
-<h1 class="font-serif-elegant text-5xl md:text-6xl font-bold leading-tight tracking-tight text-gold-gradient drop-shadow-lg">
-                Ambiente<br/>Espiritual
-            </h1>
-<h2 class="text-lg md:text-xl font-light text-gray-200 tracking-wide mt-2">
-                Arrume a Casa para Deus Entrar
-            </h2>
-<p class="text-sm text-gray-400 max-w-xs mt-4 font-light leading-relaxed">
-                Um guia prático para transformar seu espaço e sua rotina em um santuário de oração.
-            </p>
-<div class="mt-6 p-4 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 max-w-sm text-center">
-<p class="text-xs text-gray-300 leading-relaxed">
-                "Muitas vezes, nossa vida de oração não avança por um motivo simples: o ambiente não ajuda. A casa está barulhenta, o celular não para de apitar, não temos um lugar para ficar em silêncio."
-            </p>
-<p class="text-xs text-[var(--gold-light)] font-semibold mt-3">
-                Hoje vamos resolver isso juntos.
-            </p>
-</div>
-</div>
-<div class="flex-grow"></div>
-<div class="w-full relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 mb-8 group cursor-pointer">
-<img class="w-full h-full object-cover opacity-60 transition duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVmXBYXdECa6g8QxgQODxXS0S1hc1xCUkMQv822MBTkjoQ03EtgXQyhu-A5Za7nTGFhsVHFuVYdUUwUFPXviEg-hX57FSTiSTI1R_uuI0YiN9_FZP8bMsB_GDZtE23I0VILcbAveplkBJeT5PU_4zxIqs_727SndtMRtVYA6JMAemyN5N1Af8O6-3uWjeBOl0irAPt8xboPjh5xj0M1vWintG5pXdhrwZA3OJrbaYjGhnn3vs0PZFgXcODTiVcyKszHc7jPkxkt-tq"/>
-<div class="absolute inset-0 flex items-center justify-center bg-black/30">
-<div class="w-12 h-12 rounded-full glass-button flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-3xl ml-1">play_arrow</span>
-</div>
-</div>
-<div class="absolute bottom-3 left-3 right-3 text-xs text-gray-300 flex justify-between">
-<span>Introdução</span>
-<span>01:00</span>
-</div>
-</div>
-<div class="w-full flex flex-col items-center gap-4 pb-6">
-<button class="w-full glass-button text-white font-medium text-lg py-4 rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-transform duration-200 hover:bg-white/20" onclick="window.location='./parte-2.html'">
-<span>Iniciar Tutorial</span>
-<span class="material-symbols-outlined text-[var(--gold-primary)]">arrow_forward</span>
-</button>
-<div class="grid grid-cols-2 gap-3 w-full">
+  </script>
+</body>
+</html>
 <button class="glass-button text-white font-medium py-3 rounded-xl flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform duration-200 hover:bg-white/20" onclick="window.location='./checklist.html'">
 <span class="material-symbols-outlined text-[var(--gold-light)]">checklist</span>
 <span class="text-sm">Checklist</span>

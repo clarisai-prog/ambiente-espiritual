@@ -1,215 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Checklist e Wallpapers - Ambiente Espiritual</title>
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#c9a96e">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<link rel="stylesheet" href="./design-tokens.css">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-  .checkbox-container input:checked + div { background-color: var(--color-primary-gold); border-color: var(--color-primary-gold); }
-</style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="antialiased min-h-screen pb-safe">
-<div class="h-12 bg-[var(--light-bg)] w-full sticky top-0 z-50"></div>
-<header class="px-6 pb-4 pt-2 flex items-center justify-between sticky top-12 z-40 bg-[var(--light-bg)]/95 backdrop-blur-sm">
-<button class="p-2 -ml-2 rounded-full hover:bg-[var(--secondary-color)]/20 transition-colors" onclick="window.location='./parte-4.html'">
-<span class="material-symbols-outlined text-[var(--primary-color)]">arrow_back</span>
-</button>
-<div class="text-sm font-bold tracking-widest text-[var(--primary-color)] uppercase">Ambiente Espiritual</div>
-<button class="p-2 -mr-2 rounded-full hover:bg-[var(--secondary-color)]/20 transition-colors">
-<span class="material-symbols-outlined text-[var(--primary-color)]">more_vert</span>
-</button>
-</header>
-<main class="px-6 pb-24 space-y-8">
-<div class="space-y-2">
-<span class="text-xs font-bold text-[var(--primary-color)] opacity-60 tracking-wider">PASSO 4 DE 5</span>
-<h1 class="text-3xl font-bold text-[var(--accent-color)] leading-tight">Checklist e Wallpapers</h1>
-<p class="text-[var(--text-color)] opacity-80 leading-relaxed">
-                Use esta lista para dar os primeiros passos e personalize seu celular com lembretes espirituais.
-            </p>
-</div>
-<section class="space-y-6">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-[var(--primary-color)] text-3xl">check_box</span>
-<h2 class="text-2xl font-semibold text-[var(--accent-color)]">Minha Casa Pronta</h2>
-</div>
-<div class="bg-[var(--card-bg)] rounded-2xl p-5 shadow-sm border border-[var(--secondary-color)]/30">
-<div class="flex items-center gap-2 mb-4 border-b border-[var(--secondary-color)]/30 pb-2">
-<span class="material-symbols-outlined text-[var(--primary-color)]">home</span>
-<h3 class="font-bold text-lg text-[var(--accent-color)]">Espaço Físico</h3>
-</div>
-<div class="space-y-4">
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Escolhi um lugar definido para ser meu 'canto sagrado'.</span>
-</label>
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">O lugar está limpo e organizado.</span>
-</label>
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Tenho pelo menos 1 item físico que me lembra de Deus.</span>
-</label>
-</div>
-</div>
-<div class="bg-[var(--card-bg)] rounded-2xl p-5 shadow-sm border border-[var(--secondary-color)]/30">
-<div class="flex items-center gap-2 mb-4 border-b border-[var(--secondary-color)]/30 pb-2">
-<span class="material-symbols-outlined text-[var(--primary-color)]">schedule</span>
-<h3 class="font-bold text-lg text-[var(--accent-color)]">Rotina</h3>
-</div>
-<div class="space-y-4">
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Defini meu horário de oração da manhã e o hábito gatilho.</span>
-</label>
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Defini meu horário de oração da noite e o hábito gatilho.</span>
-</label>
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Sei qual é a minha 'versão mínima' de oração (1 min).</span>
-</label>
-</div>
-</div>
-<div class="bg-[var(--card-bg)] rounded-2xl p-5 shadow-sm border border-[var(--secondary-color)]/30">
-<div class="flex items-center gap-2 mb-4 border-b border-[var(--secondary-color)]/30 pb-2">
-<span class="material-symbols-outlined text-[var(--primary-color)]">smartphone</span>
-<h3 class="font-bold text-lg text-[var(--accent-color)]">Digital</h3>
-</div>
-<div class="space-y-4">
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Configurei o modo 'Não Perturbe'.</span>
-</label>
-<label class="checkbox-container flex items-start gap-3 cursor-pointer group">
-<input class="hidden peer" type="checkbox"/>
-<div class="custom-checkbox w-6 h-6 rounded-md border-2 border-[var(--secondary-color)] flex items-center justify-center shrink-0 mt-0.5 peer-checked:bg-[var(--primary-color)] peer-checked:border-[var(--primary-color)] group-hover:border-[var(--primary-color)]">
-<svg class="w-4 h-4 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<span class="text-sm text-[var(--text-color)] group-hover:text-[var(--primary-color)] transition-colors">Organizei minha tela inicial (app de oração acessível).</span>
-</label>
-</div>
-</div>
-<button class="w-full bg-[var(--card-bg)] border border-[var(--primary-color)] text-[var(--primary-color)] font-semibold py-4 rounded-xl shadow-sm active:scale-[0.98] transition-transform flex items-center justify-center gap-2 group">
-<span class="material-symbols-outlined group-hover:animate-bounce">download</span>
-                Baixar Checklist em PDF
-            </button>
-</section>
-<hr class="border-[var(--secondary-color)] opacity-50"/>
-<section class="space-y-6">
-<div class="flex items-center gap-3 mb-2">
-<span class="material-symbols-outlined text-[var(--primary-color)] text-3xl">wallpaper</span>
-<h2 class="text-2xl font-semibold text-[var(--accent-color)]">Wallpapers</h2>
-</div>
-<p class="text-sm text-[var(--text-color)] opacity-70">
-                Frases curtas para usar como tela de bloqueio e lembrar do essencial ao longo do dia.
-            </p>
-<div class="grid grid-cols-1 gap-4">
-<div class="bg-[var(--secondary-color)]/20 rounded-xl p-4 border border-[var(--secondary-color)]/30">
-<h3 class="font-bold text-[var(--primary-color)] text-sm uppercase tracking-wide mb-3">Foco no Recomeço</h3>
-<ul class="space-y-3">
-<li class="bg-white p-3 rounded-lg shadow-sm text-sm font-medium flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
-                            "Ainda assim, agora mesmo."
-                            <span class="material-symbols-outlined text-gray-400 text-sm">content_copy</span>
-</li>
-<li class="bg-white p-3 rounded-lg shadow-sm text-sm font-medium flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
-                            "Hoje eu começo de novo."
-                            <span class="material-symbols-outlined text-gray-400 text-sm">content_copy</span>
-</li>
-<li class="bg-white p-3 rounded-lg shadow-sm text-sm font-medium flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
-                            "Deus não faz chamada."
-                            <span class="material-symbols-outlined text-gray-400 text-sm">content_copy</span>
-</li>
-</ul>
-</div>
-<div class="bg-[var(--secondary-color)]/20 rounded-xl p-4 border border-[var(--secondary-color)]/30">
-<h3 class="font-bold text-[var(--primary-color)] text-sm uppercase tracking-wide mb-3">Foco nos Pilares</h3>
-<ul class="space-y-3">
-<li class="bg-white p-3 rounded-lg shadow-sm text-sm font-medium flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
-                            "Não só de pão."
-                            <span class="material-symbols-outlined text-gray-400 text-sm">content_copy</span>
-</li>
-<li class="bg-white p-3 rounded-lg shadow-sm text-sm font-medium flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
-                            "Ora a teu Pai em segredo."
-                            <span class="material-symbols-outlined text-gray-400 text-sm">content_copy</span>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<div class="bg-[var(--primary-color)] rounded-2xl p-6 text-center text-white relative overflow-hidden shadow-lg mt-8">
-<div class="absolute top-0 left-0 w-full h-1 bg-white/20"></div>
-<h3 class="font-serif text-2xl font-bold mb-4 leading-relaxed">Pronto. Você Arrumou a Casa.</h3>
-<p class="text-sm leading-relaxed mb-4 opacity-90">
-                Você tem um espaço, uma rotina mínima e um celular configurado. Agora, é só viver nela. <strong>Um dia de cada vez.</strong>
-            </p>
-<p class="text-xs uppercase tracking-widest opacity-70 mb-4">Sua Jornada Espiritual</p>
-<blockquote class="font-serif italic text-base leading-relaxed mb-4">
-                "Que este ambiente que você preparou seja um lugar de muitos encontros com o Amor de Deus. <span class="text-[#EED6C4]">Vá em paz.</span>"
-            </blockquote>
-<span class="material-symbols-outlined text-4xl mb-3 opacity-80">favorite</span>
-<p class="text-xs font-semibold">Que Deus te abençoe!</p>
-</div>
-<div class="bg-[var(--secondary-color)]/20 rounded-xl p-4 border border-[var(--secondary-color)]/30 mt-6">
-<blockquote class="font-serif italic text-center text-[var(--primary-color)] leading-relaxed">
-                "Deus já mora em todo lugar. Este pequeno espaço é para você se lembrar disso."
-            </blockquote>
-</div>
-</main>
-<div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 pb-8 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50">
-<div class="flex items-center justify-between gap-4 max-w-md mx-auto">
-<button class="flex-1 py-3.5 px-6 rounded-xl bg-gray-100 text-[var(--text-color)] font-bold text-sm hover:bg-gray-200 transition-colors" onclick="window.location='./parte-4.html'">
-                Voltar
-            </button>
-<button class="flex-[2] py-3.5 px-6 rounded-xl bg-[var(--primary-color)] text-white font-bold text-sm shadow-lg hover:bg-[var(--accent-color)] transition-colors flex items-center justify-center gap-2" onclick="window.location='./index.html'">
-                Concluir Estudo
-                <span class="material-symbols-outlined text-lg">check_circle</span>
-</button>
-</div>
-</div>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Parte 4: Conclusão - Pronto. Você Arrumou a Casa.</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#F5F2E9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <main class="app-container">
+    <!-- Header com Progresso -->
+    <div class="mb-xl">
+      <p style="font-size: 0.875rem; color: var(--c-texto-apoio); margin-bottom: var(--spacing-sm);">Página 5 de 5</p>
+      <h1>Conclusão: Pronto. Você Arrumou a Casa.</h1>
+      <p class="text-apoio">Seu caminho espiritual acabou de começar.</p>
+      <div class="progress-container mt">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 100%"></div>
+        </div>
+        <p class="progress-text">5 de 5 etapas - Completo!</p>
+      </div>
+    </div>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(reg => console.log('SW ok:', reg.scope))
-        .catch(err => console.error('SW error:', err));
-    });
-  }
-</script>
-</body></html>
+    <!-- Parabéns -->
+    <div class="card-elohim" style="background: linear-gradient(135deg, rgba(200,176,138,0.2) 0%, rgba(238,191,184,0.1) 100%); border: 1px solid var(--c-dourado-suave); text-align: center; padding: var(--spacing-xl);">
+      <span class="material-symbols-outlined" style="font-size: 4rem; color: var(--c-dourado-suave);">check_circle</span>
+      <h2 style="color: var(--c-dourado-suave); margin: var(--spacing-md) 0;">Parabéns!</h2>
+      <p class="text-apoio">
+        Você completou o guia "Ambiente Espiritual" e deu o primeiro passo uma jornada de transformação interior.
+      </p>
+    </div>
+
+    <!-- Resumo do Aprendido -->
+    <div class="card-elohim">
+      <h3>O Que Você Conquistou</h3>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+          <span class="material-symbols-outlined" style="color: var(--c-dourado-suave); flex-shrink: 0;">check_box</span>
+          <span class="text-apoio">
+            <strong>Um Canto Sagrado:</strong> Um espaço físico dedicado à oração, longe do caos do dia a dia.
+          </span>
+        </li>
+        <li style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+          <span class="material-symbols-outlined" style="color: var(--c-dourado-suave); flex-shrink: 0;">check_box</span>
+          <span class="text-apoio">
+            <strong>Uma Rotina que Liberta:</strong> Os 3 Pilares (Matinal, Meio-Dia, Noturno) para consistência espiritual.
+          </span>
+        </li>
+        <li style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+          <span class="material-symbols-outlined" style="color: var(--c-dourado-suave); flex-shrink: 0;">check_box</span>
+          <span class="text-apoio">
+            <strong>Domínio Tecnológico:</strong> Seu celular é agora ferramenta espiritual, não distração.
+          </span>
+        </li>
+        <li style="display: flex; gap: var(--spacing-md);">
+          <span class="material-symbols-outlined" style="color: var(--c-dourado-suave); flex-shrink: 0;">check_box</span>
+          <span class="text-apoio">
+            <strong>Uma Nova Mentalidade:</strong> O ambiente não é só físico – é espiritual. Você arrumou ambos.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Próximos Passos -->
+    <div class="card-elohim">
+      <h3>Seus Próximos Passos</h3>
+      <p class="text-apoio" style="margin-bottom: var(--spacing-md);">
+        O guia terminou, mas sua jornada espiritual agora começa de verdade. Aqui estão as sugestões:
+      </p>
+      <ol style="list-style: decimal; margin-left: var(--spacing-lg); color: var(--c-azul-marinho);">
+        <li style="margin-bottom: var(--spacing-sm);">
+          <strong>Comece hoje</strong> - Não espere amanhã. Implemente os 3 Pilares esta mesma semana.
+        </li>
+        <li style="margin-bottom: var(--spacing-sm);">
+          <strong>Seja consistente</strong> - A transformação espiritual vem da regularidade, não da intensidade.
+        </li>
+        <li style="margin-bottom: var(--spacing-sm);">
+          <strong>Reflexione</strong> - Use seu Caderno. A escrita honesta aproxima-nos do divino.
+        </li>
+        <li>
+          <strong>Compartilhe</strong> - Quando o seu canto sagrado frutificar, inspire alguém próximo a fazer o mesmo.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Mensagem Final -->
+    <div class="card-elohim" style="text-align: center;">
+      <p style="font-style: italic; color: var(--c-dourado-suave); font-size: 1.1rem; margin: 0;">
+        "A casa que arrumamos não é só um lugar.<br/>É um refúgio da presença divina.<br/>Bem-vindo ao seu novo lar espiritual."
+      </p>
+    </div>
+
+    <!-- Botões de Ação -->
+    <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+      <button class="btn btn-primario" style="width: 100%; margin-top: var(--spacing-md);" onclick="window.location='./checklist.html'">
+        <span class="material-symbols-outlined">checklist</span> Ver Meu Checklist
+      </button>
+      <button class="btn btn-secundario" style="width: 100%;" onclick="window.location='./wallpapers.html'">
+        <span class="material-symbols-outlined">image</span> Explorar Wallpapers
+      </button>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-bar">
+    <button class="btn btn-secundario" onclick="window.location='./parte-4.html'">
+      <span class="material-symbols-outlined">arrow_back</span> Anterior
+    </button>
+    <button class="btn btn-primario" onclick="window.location='./index.html'">
+      <span class="material-symbols-outlined">home</span> Capa
+    </button>
+  </nav>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
+</body>
+</html>

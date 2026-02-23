@@ -4,8 +4,8 @@
   "description": "Arrume a Casa para Deus Entrar",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#1a1a2e",
-  "theme_color": "#c9a96e",
+  "background_color": "#F5F2E9",
+  "theme_color": "#1A2238",
   "orientation": "portrait",
   "icons": [
     {
