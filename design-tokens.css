@@ -398,3 +398,131 @@ a:focus-visible {
   outline: 2px solid var(--c-dourado-suave);
   outline-offset: 4px;
 }
+/* ============================================
+   BOTÕES DE AÇÃO DA TELA INICIAL
+   (Correção dos Ícones Fantasmas)
+   ============================================ */
+.home-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.action-btn-card {
+  background-color: var(--c-bg-card); /* Fundo Branco */
+  border: 1px solid rgba(200, 176, 138, 0.4); /* Borda Dourada Suave */
+  border-radius: 16px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26, 34, 56, 0.03);
+  transition: all 0.3s ease;
+  gap: 12px;
+}
+
+.action-btn-card:hover {
+  box-shadow: 0 8px 24px rgba(26, 34, 56, 0.08);
+  transform: translateY(-2px);
+  border-color: var(--c-dourado-suave);
+}
+
+.action-btn-card:active {
+  background-color: var(--c-azul-marinho);
+  transform: scale(0.98);
+}
+
+.action-btn-card svg,
+.action-btn-card img {
+  width: 32px;
+  height: 32px;
+  /* Se os ícones originais forem brancos, esse filtro os transforma no Azul Marinho */
+  filter: brightness(0) saturate(100%) invert(11%) sepia(21%) saturate(2253%) hue-rotate(189deg) brightness(97%) contrast(93%);
+}
+
+.action-btn-card:active svg,
+.action-btn-card:active img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.action-btn-card span {
+  font-family: var(--f-texto);
+  color: var(--c-azul-marinho); /* Texto visível! */
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.action-btn-card:active span {
+  color: var(--c-bg-areia);
+}
+
+/* ============================================
+   MODO PDF / IMPRESSÃO (A4)
+   ========================================== */
+@media print {
+  /* Força o navegador a imprimir as cores de fundo (Areia e Marinho) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Define o tamanho da página como A4 */
+  @page {
+    size: A4 portrait;
+    margin: 20mm;
+  }
+
+  body {
+    background-color: var(--c-bg-areia);
+  }
+
+  /* Esconde tudo que não deve ir para o PDF */
+  .bottom-bar,
+  .btn-voltar,
+  .video-box,
+  nav,
+  .home-action-buttons {
+    display: none !important;
+  }
+
+  /* Formata o container para caber bonito na folha */
+  .app-container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0;
+  }
+
+  .card-elohim {
+    box-shadow: none;
+    border: 1px solid var(--c-dourado-suave);
+    break-inside: avoid; /* Evita que o card seja cortado no meio */
+    margin-bottom: 20px;
+  }
+
+  /* Capa do PDF na primeira página */
+  .pdf-cover {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    page-break-after: always;
+  }
+
+  .pdf-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Na tela (celular), escondemos a capa do PDF */
+@media screen {
+  .pdf-cover {
+    display: none;
+  }
+}

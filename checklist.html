@@ -20,6 +20,11 @@
   </style>
 </head>
 <body>
+  <!-- CAPA DO PDF (Escondida no celular, visível ao imprimir) -->
+  <div class="pdf-cover">
+    <img src="./icons/capa (2).png" alt="Capa - Guia Espiritual: Arrume a Casa para Deus Entrar">
+  </div>
+
   <main class="app-container">
     <!-- Header -->
     <div class="mb-xl">
@@ -85,7 +90,7 @@
     <!-- Ações -->
     <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
       <button class="btn btn-primario" style="width: 100%;" onclick="downloadPDF()">
-        <span class="material-symbols-outlined">download</span> Baixar Checklist em PDF
+        <span class="material-symbols-outlined">download</span> Imprimir / Salvar em PDF
       </button>
       <button class="btn btn-secundario" style="width: 100%;" onclick="limparProgresso()">
         <span class="material-symbols-outlined">refresh</span> Limpar Progresso

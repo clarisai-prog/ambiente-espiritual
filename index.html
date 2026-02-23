@@ -62,16 +62,26 @@
     </div>
 
     <!-- Ações Principais -->
-    <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: 80px;">
+    <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: 24px;">
       <button class="btn btn-primario" style="width: 100%;" onclick="window.location='./parte-2.html'">
         Iniciar Tutorial →
       </button>
-      <button class="btn btn-secundario" style="width: 100%;" onclick="window.location='./checklist.html'">
-        <span class="material-symbols-outlined">checklist</span> Meu Progresso
-      </button>
-      <button class="btn btn-secundario" style="width: 100%;" onclick="window.location='./wallpapers.html'">
-        <span class="material-symbols-outlined">image</span> Inspiração
-      </button>
+    </div>
+
+    <!-- Cards Interativos (Botões Fantasmas Corrigidos) -->
+    <div class="home-action-buttons">
+      <a href="./checklist.html" class="action-btn-card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
+          <path d="M9 11l3 3L22 4M11 20H7c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v11"/>
+        </svg>
+        <span>Meu Progresso</span>
+      </a>
+      <a href="./wallpapers.html" class="action-btn-card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+        </svg>
+        <span>Inspiração</span>
+      </a>
     </div>
   </main>
 
