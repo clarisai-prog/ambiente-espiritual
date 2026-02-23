@@ -1,5 +1,8 @@
 const CACHE_NAME = 'ambiente-espiritual-v3';
 
+// Lista de versões antigas para limpeza agressiva
+const OLD_CACHE_VERSIONS = ['ambiente-espiritual-v1', 'ambiente-espiritual-v2', 'ambiente-espiritual-v0'];
+
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -26,14 +29,26 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
   console.log('Service Worker installing...');
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Caching app shell');
-        return cache.addAll(ASSETS_TO_CACHE);
-      })
-      .catch((error) => {
-        console.error('Cache failed:', error);
-      })
+    // Primeiro, limpar todos os caches antigos
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME && (cacheName.includes('ambiente-espiritual') || OLD_CACHE_VERSIONS.includes(cacheName))) {
+            console.log('🧹 Limpando cache antiga na instalação:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(() => {
+      // Depois, abrir e cachear novos assets
+      return caches.open(CACHE_NAME)
+        .then((cache) => {
+          console.log('✅ Cacheando nova estrutura com design-tokens...');
+          return cache.addAll(ASSETS_TO_CACHE);
+        });
+    }).catch((error) => {
+      console.error('❌ Erro ao cachear:', error);
+    })
   );
   self.skipWaiting();
 });
@@ -45,12 +60,24 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
+          // Remover TUDO que não for v3
           if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
+            console.log('🧹 Deletando cache antigo:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
+    }).then(() => {
+      console.log('✅ Limpeza de cache concluída');
+      return self.clients.matchAll();
+    }).then((clients) => {
+      // Notificar todos os clientes sobre a atualização
+      clients.forEach((client) => {
+        client.postMessage({
+          type: 'CACHE_CLEARED',
+          message: 'Cache foi limpo e app está atualizado com design-tokens!'
+        });
+      });
     })
   );
   self.clients.claim();

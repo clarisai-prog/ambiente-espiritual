@@ -95,11 +95,70 @@
 </div>
 </main>
 <script>
+  // 🧹 LIMPEZA AGRESSIVA: Remover cache antigo e localStorage desatualizado
+  (async function clearOldCache() {
+    try {
+      // Listar todos os caches
+      const cacheNames = await caches.keys();
+      console.log('📦 Caches encontrados:', cacheNames);
+      
+      // Remover qualquer cache que não seja v3
+      const oldCaches = cacheNames.filter(name => 
+        name.includes('ambiente-espiritual') && !name.includes('v3')
+      );
+      
+      if (oldCaches.length > 0) {
+        console.log('🧹 Limpando caches antigos:', oldCaches);
+        await Promise.all(oldCaches.map(name => caches.delete(name)));
+        console.log('✅ Caches antigos removidos com sucesso!');
+      }
+    } catch (error) {
+      console.error('Erro ao limpar cache:', error);
+    }
+    
+    // Limpar localStorage de versões anteriores
+    try {
+      // Manter apenas o checklist moderno
+      const allKeys = Object.keys(localStorage);
+      const keysToKeep = ['ambiente-espiritual-checklist'];
+      
+      allKeys.forEach(key => {
+        if (!keysToKeep.includes(key) && key.includes('ambiente') || key.includes('checklist')) {
+          console.log('🧹 Removendo localStorage:', key);
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (error) {
+      console.error('Erro ao limpar localStorage:', error);
+    }
+  })();
+
+  // Notificar quando Service Worker envia mensagem de limpeza
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data.type === 'CACHE_CLEARED') {
+        console.log('✨ Service Worker:', event.data.message);
+        // Recarregar a página para aplicar mudanças
+        if (confirm('App foi atualizado! Deseja recarregar a página?')) {
+          location.reload();
+        }
+      }
+    });
+  }
+  
+  // Registrar Service Worker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('./service-worker.js')
-        .then(reg => console.log('SW ok:', reg.scope))
-        .catch(err => console.error('SW error:', err));
+        .then(reg => {
+          console.log('✅ Service Worker registrado:', reg.scope);
+          
+          // Verificar atualizações a cada 5 minutos
+          setInterval(() => {
+            reg.update();
+          }, 5 * 60 * 1000);
+        })
+        .catch(err => console.error('❌ Erro no Service Worker:', err));
     });
   }
 </script>
