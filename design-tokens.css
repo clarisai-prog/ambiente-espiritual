@@ -491,7 +491,7 @@ a:focus-visible {
 /* Cabeçalho da Capa */
 .cover-header {
   text-align: center;
-  margin-top: 22vh !important;
+  margin-top: 28vh !important;
   margin-bottom: 20px;
   animation: fadeIn var(--transition-base) ease-out;
 }
@@ -527,7 +527,7 @@ a:focus-visible {
 .cover-actions {
   width: 100%;
   max-width: 500px;
-  margin: 0 auto 8vh auto;
+  margin: 0 auto 2vh auto;
   animation: slideUp var(--transition-base) ease-out;
 }
 
