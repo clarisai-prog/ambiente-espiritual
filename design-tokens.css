@@ -491,7 +491,8 @@ a:focus-visible {
 /* Cabeçalho da Capa */
 .cover-header {
   text-align: center;
-  margin-top: 4vh;
+  margin-top: 15vh !important;
+  margin-bottom: 20px;
   animation: fadeIn var(--transition-base) ease-out;
 }
 
@@ -580,24 +581,26 @@ a:focus-visible {
 
 /* Botões Glassmorphism (Checklist e Wallpapers) */
 .home-action-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .action-btn-glass {
-  background: rgba(255, 255, 255, 0.03); /* Fundo ainda mais sutil */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 176, 138, 0.25); /* Borda Dourada bem delicada */
-  border-radius: 16px;
-  padding: 24px 12px; /* Mais altura, para dar respiro ao ícone */
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 176, 138, 0.3);
+  border-radius: 30px;
+  padding: 12px 16px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
@@ -615,26 +618,19 @@ a:focus-visible {
 
 .action-btn-glass img,
 .action-btn-glass svg {
-  /* TRAVA O TAMANHO DO ÍCONE PARA FICAR PEQUENO E DELICADO */
-  width: 20px !important;
-  height: 20px !important;
-  margin-bottom: 16px; /* Espaço entre o ícone e o texto */
-  
-  /* Se o dev estiver usando SVG no HTML, forçamos a linha fina */
-  stroke-width: 1.2px !important;
-  stroke: var(--c-dourado-suave);
-  fill: none !important; /* Remove o preenchimento pesado se for SVG */
-  
-  /* Para PNGs/ícones pretos, transforma em Areia */
-  filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(541%) hue-rotate(320deg) brightness(105%) contrast(94%);
+  width: 18px !important;
+  height: 18px !important;
+  margin-bottom: 0 !important;
+  opacity: 0.9;
 }
 
 .action-btn-glass span {
   font-family: var(--f-texto);
   color: var(--c-bg-areia);
-  font-weight: 400; /* Removido o negrito pesado */
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.8rem;
   letter-spacing: 0.5px;
+  text-transform: none;
 }
 
 /* Animações para capa */
