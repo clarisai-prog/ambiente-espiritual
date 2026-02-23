@@ -1,11 +1,12 @@
-const CACHE_NAME = 'ambiente-espiritual-v4';
+const CACHE_NAME = 'ambiente-espiritual-v5';
 
 // Lista de versões antigas para limpeza agressiva
-const OLD_CACHE_VERSIONS = ['ambiente-espiritual-v1', 'ambiente-espiritual-v2', 'ambiente-espiritual-v0', 'ambiente-espiritual-v3'];
+const OLD_CACHE_VERSIONS = ['ambiente-espiritual-v1', 'ambiente-espiritual-v2', 'ambiente-espiritual-v0', 'ambiente-espiritual-v3', 'ambiente-espiritual-v4'];
 
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './tutorial-abertura.html',
   './parte-2.html',
   './parte-3.html',
   './parte-4.html',
@@ -21,8 +22,9 @@ const ASSETS_TO_CACHE = [
   './assets/screen-5.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
+  './icons/capa-video.png',
   'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap',
-  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap'
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap'
 ];
 
 // Install event - cache all assets
