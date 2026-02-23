@@ -480,7 +480,7 @@ a:focus-visible {
       rgba(26, 34, 56, 0.95) 80%,
       var(--c-azul-marinho) 100%
     ),
-    url('./icons/capa\ \(2\).png');
+    url('./icons/capa-home.png');
   
   background-size: cover;
   background-position: center;
