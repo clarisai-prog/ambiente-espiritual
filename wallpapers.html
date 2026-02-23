@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <title>Wallpapers - Ambiente Espiritual</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#c9a96e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #6B4F4F;
+            --secondary-color: #EED6C4;
+            --accent-color: #483C32;
+            --text-color: #2D2424;
+            --light-bg: #FDFBF7;
+            --card-bg: #FFFFFF;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .wallpaper-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 9/16;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .wallpaper-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .wallpaper-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .wallpaper-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(107, 79, 79, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .wallpaper-card:hover .wallpaper-overlay {
+            opacity: 1;
+        }
+        .wallpaper-overlay button {
+            background: var(--secondary-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .wallpaper-overlay button:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="sticky top-0 z-40 bg-[var(--light-bg)]/95 backdrop-blur-sm border-b border-[var(--secondary-color)]/20 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <button class="p-2 -ml-2 rounded-full hover:bg-[var(--secondary-color)]/20 transition-colors" onclick="window.location='./index.html'">
+                    <span class="material-symbols-outlined text-[var(--primary-color)]">arrow_back</span>
+                </button>
+                <h1 class="text-lg font-bold text-[var(--primary-color)]">Wallpapers</h1>
+                <div class="w-10"></div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="flex-1 px-4 py-6 max-w-4xl mx-auto w-full">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-[var(--primary-color)] mb-2">Inspiração Diária</h2>
+                <p class="text-gray-600">Baixe wallpapers para sua tela de bloqueio e fundo</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                <button class="filter-tab px-4 py-2 rounded-full bg-[var(--primary-color)] text-white font-semibold whitespace-nowrap" data-filter="all">
+                    Todos
+                </button>
+                <button class="filter-tab px-4 py-2 rounded-full bg-gray-200 text-[var(--primary-color)] font-semibold whitespace-nowrap" data-filter="phone">
+                    Mobile
+                </button>
+                <button class="filter-tab px-4 py-2 rounded-full bg-gray-200 text-[var(--primary-color)] font-semibold whitespace-nowrap" data-filter="tablet">
+                    Tablet
+                </button>
+                <button class="filter-tab px-4 py-2 rounded-full bg-gray-200 text-[var(--primary-color)] font-semibold whitespace-nowrap" data-filter="desktop">
+                    Desktop
+                </button>
+            </div>
+
+            <!-- Wallpapers Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Phone Wallpapers (9:16) -->
+                <div class="wallpaper-card" data-category="phone">
+                    <img alt="Oração ao amanhecer" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=700&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Oracao_Amanhecer.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Mobile
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card" data-category="phone">
+                    <img alt="Bíblia aberta" src="https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=700&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Biblia_Aberta.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Mobile
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card" data-category="phone">
+                    <img alt="Vela e oração" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=700&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Vela_Oracao.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Mobile
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card" data-category="phone">
+                    <img alt="Reflexão espiritual" src="https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=400&h=700&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Reflexao_Espiritual.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Mobile
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tablet Wallpapers (4:5) -->
+                <div class="wallpaper-card col-span-1 md:col-span-1" data-category="tablet">
+                    <img alt="Natureza e fé" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=750&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Natureza_Fe.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Tablet
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card col-span-1 md:col-span-1" data-category="tablet">
+                    <img alt="Luz divina" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=750&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Luz_Divina.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Tablet
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop Wallpapers (16:9) -->
+                <div class="wallpaper-card col-span-2 md:col-span-2" data-category="desktop">
+                    <img alt="Paisagem serena" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&h=506&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Paisagem_Serena.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Desktop
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wallpaper-card col-span-2 md:col-span-2" data-category="desktop">
+                    <img alt="Céu estrelado" src="https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=900&h=506&fit=crop"/>
+                    <div class="wallpaper-overlay">
+                        <button onclick="downloadWallpaper('Ceu_Estrelado.jpg', this)">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            Desktop
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="mt-12 p-6 bg-[var(--secondary-color)]/20 rounded-lg border border-[var(--secondary-color)]">
+                <h3 class="font-bold text-[var(--primary-color)] mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined">info</span>
+                    Dica: Como usar wallpapers
+                </h3>
+                <ul class="text-sm text-gray-700 space-y-2">
+                    <li><strong>Android:</strong> Configurações → Tela de bloqueio → Fundo de tela</li>
+                    <li><strong>iOS:</strong> Configurações → Tela de bloqueio → Personalizar</li>
+                    <li><strong>Desktop:</strong> Clique direito na imagem → Definir como papel de parede</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-[var(--secondary-color)]/20 p-4 z-50">
+            <button class="w-full py-3 px-4 rounded-lg bg-[var(--primary-color)] text-white font-bold text-sm hover:bg-[var(--accent-color)] transition-colors flex items-center justify-center gap-2" onclick="window.location='./index.html'">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Voltar
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                
+                // Update active tab
+                document.querySelectorAll('.filter-tab').forEach(t => {
+                    t.classList.remove('bg-[var(--primary-color)]', 'text-white');
+                    t.classList.add('bg-gray-200', 'text-[var(--primary-color)]');
+                });
+                this.classList.add('bg-[var(--primary-color)]', 'text-white');
+                this.classList.remove('bg-gray-200', 'text-[var(--primary-color)]');
+                
+                // Filter cards
+                document.querySelectorAll('.wallpaper-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Download functionality
+        function downloadWallpaper(filename, button) {
+            const img = button.parentElement.parentElement.querySelector('img');
+            const link = document.createElement('a');
+            link.href = img.src;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('SW ok:', reg.scope))
+                    .catch(err => console.error('SW error:', err));
+            });
+        }
+    </script>
+</body>
+</html>

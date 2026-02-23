@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ambiente-espiritual-v1';
+const CACHE_NAME = 'ambiente-espiritual-v2';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -7,6 +7,8 @@ const ASSETS_TO_CACHE = [
   './parte-3.html',
   './parte-4.html',
   './parte-5.html',
+  './checklist.html',
+  './wallpapers.html',
   './manifest.json',
   './assets/screen-1.png',
   './assets/screen-2.png',

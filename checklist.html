@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <title>Checklist - Ambiente Espiritual</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#c9a96e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #6B4F4F;
+            --secondary-color: #EED6C4;
+            --accent-color: #483C32;
+            --text-color: #2D2424;
+            --light-bg: #FDFBF7;
+            --card-bg: #FFFFFF;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .checkbox-container input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .checkbox-container input:checked {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .checkbox-container input:checked::after {
+            content: '✓';
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="sticky top-0 z-40 bg-[var(--light-bg)]/95 backdrop-blur-sm border-b border-[var(--secondary-color)]/20 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <button class="p-2 -ml-2 rounded-full hover:bg-[var(--secondary-color)]/20 transition-colors" onclick="window.location='./index.html'">
+                    <span class="material-symbols-outlined text-[var(--primary-color)]">arrow_back</span>
+                </button>
+                <h1 class="text-lg font-bold text-[var(--primary-color)]">Checklist</h1>
+                <button class="p-2 -mr-2 rounded-full hover:bg-[var(--secondary-color)]/20 transition-colors" onclick="downloadPDF()">
+                    <span class="material-symbols-outlined text-[var(--primary-color)]">download</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main id="checklist-content" class="flex-1 px-6 py-6 max-w-2xl mx-auto w-full">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-[var(--primary-color)] mb-2">Sua Jornada Espiritual</h2>
+                <p class="text-gray-600">Acompanhe seu progresso através dos passos essenciais</p>
+            </div>
+
+            <!-- Checklist Items -->
+            <div class="space-y-4">
+                <!-- Part 1: Seu Canto Sagrado -->
+                <div class="bg-white rounded-lg p-4 border border-[var(--secondary-color)]/30 shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 checkbox-container" id="check1"/>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-[var(--primary-color)] text-lg mb-1">Seu Canto Sagrado</h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>☐ Escolher um local específico na casa</li>
+                                <li>☐ Limpar e organizar o espaço</li>
+                                <li>☐ Colocar a Bíblia no local</li>
+                                <li>☐ Colocar um crucifixo ou imagem religiosa</li>
+                                <li>☐ Adicionar vela ou iluminação suave</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Rotina que Liberta -->
+                <div class="bg-white rounded-lg p-4 border border-[var(--secondary-color)]/30 shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 checkbox-container" id="check2"/>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-[var(--primary-color)] text-lg mb-1">Rotina que Liberta</h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>☐ Definir horário de oração matinal</li>
+                                <li>☐ Preparar café/bebida favorita</li>
+                                <li>☐ Reservar 15 minutos ininterruptos</li>
+                                <li>☐ Ler um versículo da Bíblia</li>
+                                <li>☐ Registrar pensamentos em um diário</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 3: Ambiente Digital -->
+                <div class="bg-white rounded-lg p-4 border border-[var(--secondary-color)]/30 shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 checkbox-container" id="check3"/>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-[var(--primary-color)] text-lg mb-1">Ambiente Digital</h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>☐ Remover distrações da tela</li>
+                                <li>☐ Desativar notificações durante oração</li>
+                                <li>☐ Usar aplicativo de meditação ou leitura</li>
+                                <li>☐ Configurar lembretes para oração</li>
+                                <li>☐ Criar pasta com músicas relaxantes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 4: Fortalecendo a Fé -->
+                <div class="bg-white rounded-lg p-4 border border-[var(--secondary-color)]/30 shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 checkbox-container" id="check4"/>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-[var(--primary-color)] text-lg mb-1">Fortalecendo a Fé</h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>☐ Estudar a palavra diariamente</li>
+                                <li>☐ Compartilhar aprendizados com alguém</li>
+                                <li>☐ Participar de grupos de oração</li>
+                                <li>☐ Manter um diário espiritual</li>
+                                <li>☐ Praticar perdão e compaixão</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 5: Consolidando Hábitos -->
+                <div class="bg-white rounded-lg p-4 border border-[var(--secondary-color)]/30 shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 checkbox-container" id="check5"/>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-[var(--primary-color)] text-lg mb-1">Consolidando Hábitos</h3>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>☐ Manter consistência por 21 dias</li>
+                                <li>☐ Registrar mudanças observadas</li>
+                                <li>☐ Expandir tempo de oração</li>
+                                <li>☐ Envolver a família</li>
+                                <li>☐ Compartilhar testemunho de transformação</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dicas Extras -->
+                <div class="bg-[var(--secondary-color)]/20 rounded-lg p-4 border-l-4 border-[var(--primary-color)]">
+                    <h4 class="font-bold text-[var(--primary-color)] mb-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                        Dicas de Ouro
+                    </h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>✨ Comece devagar - 5 minutos é melhor que nada</li>
+                        <li>✨ Escolha um horário consistente todos os dias</li>
+                        <li>✨ Não desista se faltar um dia - retome no próximo</li>
+                        <li>✨ Envolva alguém de confiança para accountability</li>
+                        <li>✨ Celebre pequenas vitórias no seu caminho</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="mt-8 p-4 bg-[var(--primary-color)]/10 rounded-lg">
+                <p class="text-sm text-gray-700 mb-3"><strong>Seu Progresso:</strong></p>
+                <div class="w-full bg-gray-300 rounded-full h-2">
+                    <div id="progress-bar" class="bg-[var(--primary-color)] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <p id="progress-text" class="mt-2 text-sm text-[var(--primary-color)] font-bold">0 / 5 etapas concluídas</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-[var(--secondary-color)]/20 p-4 flex justify-between gap-3 z-50">
+            <button class="flex-1 py-3 px-4 rounded-lg bg-gray-100 text-[var(--primary-color)] font-bold text-sm hover:bg-gray-200 transition-colors" onclick="window.location='./index.html'">
+                Voltar
+            </button>
+            <button class="flex-1 py-3 px-4 rounded-lg bg-[var(--primary-color)] text-white font-bold text-sm hover:bg-[var(--accent-color)] transition-colors flex items-center justify-center gap-2" onclick="downloadPDF()">
+                <span class="material-symbols-outlined text-lg">download</span>
+                PDF
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        // Update progress
+        function updateProgress() {
+            const checks = document.querySelectorAll('.checkbox-container');
+            const checked = Array.from(checks).filter(c => c.checked).length;
+            const total = checks.length;
+            const percent = (checked / total) * 100;
+            
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = `${checked} / ${total} etapas concluídas`;
+        }
+
+        document.querySelectorAll('.checkbox-container').forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
+        });
+
+        // Download PDF
+        function downloadPDF() {
+            const element = document.getElementById('checklist-content');
+            const opt = {
+                margin: 10,
+                filename: 'Checklist_Ambiente_Espiritual.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('SW ok:', reg.scope))
+                    .catch(err => console.error('SW error:', err));
+            });
+        }
+    </script>
+</body>
+</html>
