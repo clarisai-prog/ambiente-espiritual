@@ -5,102 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Ambiente Espiritual - Capa</title>
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#F5F2E9">
+  <meta name="theme-color" content="#1A2238">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
   <link rel="stylesheet" href="./design-tokens.css">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 </head>
-<body>
-  <main class="app-container">
-    <!-- Header com Progresso -->
-    <div class="text-center mb mb-xl">
-      <h1>Ambiente Espiritual</h1>
-      <p class="text-apoio">Arrume a Casa para Deus Entrar</p>
-      <div class="progress-container mt">
-        <div class="progress-bar-track">
-          <div class="progress-bar-fill" style="width: 20%"></div>
-        </div>
-        <p class="progress-text">1 de 5 etapas</p>
+<body style="margin: 0; padding: 0; background: var(--c-bg-areia);">
+  <!-- CAPA IMERSIVA EM TELA CHEIA -->
+  <main class="pwa-home-cover">
+    
+    <!-- Parte Superior: Títulos e Tag -->
+    <div class="cover-header">
+      <p class="cover-tag">Guia de Estudo</p>
+      <h1 class="cover-title">Ambiente<br>Espiritual</h1>
+      <p class="cover-subtitle">Arrume a Casa para Deus Entrar</p>
+    </div>
+
+    <!-- Parte Inferior: Ações Flutuantes -->
+    <div class="cover-actions">
+      <p class="cover-desc">
+        Um programa prático de 5 etapas para transformar seu espaço e sua rotina em um santuário de oração.
+      </p>
+      
+      <!-- Botão Principal: Iniciar Tutorial -->
+      <a href="./parte-2.html" class="btn btn-iniciar">
+        Iniciar Tutorial <span class="arrow">➔</span>
+      </a>
+
+      <!-- Botões Secundários: Checklist e Wallpapers (Glassmorphism) -->
+      <div class="home-action-buttons">
+        <a href="./checklist.html" class="action-btn-glass">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 11l3 3L22 4M11 20H7c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v11" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          <span>Checklist</span>
+        </a>
+        
+        <a href="./wallpapers.html" class="action-btn-glass">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+          <span>Wallpapers</span>
+        </a>
       </div>
     </div>
 
-    <!-- Conteúdo Principal -->
-    <div class="card-elohim">
-      <p class="text-apoio">
-        "Muitas vezes, nossa vida de oração não avança por um motivo simples: o ambiente não ajuda. A casa está barulhenta, o celular não para de apitar, não temos um lugar para ficar em silêncio."
-      </p>
-      <p style="margin-top: var(--spacing-md); font-weight: 600;">
-        Hoje vamos resolver isso juntos.
-      </p>
-    </div>
-
-    <!-- Vídeo Introdutório -->
-    <div class="card-elohim">
-      <div style="aspect-ratio: 16/9; background: var(--c-azul-marinho); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-md);">
-        <span class="material-symbols-outlined" style="font-size: 64px; color: var(--c-dourado-suave);">play_circle</span>
-      </div>
-      <p style="font-size: 0.875rem; color: var(--c-texto-apoio);">
-        <strong>Introdução</strong> • 01:00
-      </p>
-    </div>
-
-    <!-- Informações Gerais -->
-    <div class="card-elohim">
-      <h3 style="color: var(--c-azul-marinho); font-size: 1.5rem;">Sobre este guia</h3>
-      <p class="text-apoio">
-        Um programa prático e espiritual de 5 etapas para transformar seu espaço e sua rotina em um santuário de oração. Através de técnicas simples e reflexões profundas, você aprenderá a:
-      </p>
-      <ul style="color: var(--c-texto-apoio); margin-left: 1.5rem; margin-bottom: var(--spacing-md);">
-        <li>✓ Preparar um Canto Sagrado dedicado à oração</li>
-        <li>✓ Estabelecer uma Rotina que Liberta</li>
-        <li>✓ Usar o Celular a Favor da Espiritualidade</li>
-        <li>✓ Revisar e Consolidar seu Aprendizado</li>
-      </ul>
-    </div>
-
-    <!-- Ações Principais -->
-    <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-bottom: 24px;">
-      <button class="btn btn-primario" style="width: 100%;" onclick="window.location='./parte-2.html'">
-        Iniciar Tutorial →
-      </button>
-    </div>
-
-    <!-- Cards Interativos (Botões Fantasmas Corrigidos) -->
-    <div class="home-action-buttons">
-      <a href="./checklist.html" class="action-btn-card">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
-          <path d="M9 11l3 3L22 4M11 20H7c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v11"/>
-        </svg>
-        <span>Meu Progresso</span>
-      </a>
-      <a href="./wallpapers.html" class="action-btn-card">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-        </svg>
-        <span>Inspiração</span>
-      </a>
-    </div>
   </main>
-
-  <!-- Bottom Navigation Bar -->
-  <nav class="bottom-bar">
-    <button class="btn btn-secundario" onclick="window.location='./index.html'">
-      <span class="material-symbols-outlined">home</span> Capa
-    </button>
-    <button class="btn btn-primario" onclick="window.location='./parte-2.html'">
-      Iniciar <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
-  </nav>
 
   <script>
     // 🧹 LIMPEZA AGRESSIVA: Cache + localStorage + dados antigos
     (async function aggressiveClearup() {
       console.log('🧹 == INICIANDO LIMPEZA AGRESSIVA v4 == 🧹');
       
-      // 1. Limpar TODOS os caches antigos
       try {
         const cacheNames = await caches.keys();
         console.log('📦 Caches encontrados:', cacheNames);
@@ -116,12 +73,10 @@
         console.error('❌ Erro ao limpar cache:', error);
       }
       
-      // 2. Limpar localStorage desatualizado
       try {
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
-          // Manter apenas o checklist moderno
           if (key !== 'ambiente-espiritual-checklist') {
             keysToRemove.push(key);
           }
@@ -139,7 +94,6 @@
         console.error('❌ Erro ao limpar localStorage:', error);
       }
       
-      // 3. Limpar IndexedDB (se existir de versões antigas)
       try {
         if (window.indexedDB) {
           const dbs = await indexedDB.databases?.() || [];
@@ -157,7 +111,7 @@
       console.log('✨ == LIMPEZA v4 CONCLUÍDA == ✨');
     })();
 
-    // Registrar Service Worker com verificação de atualização
+    // Registrar Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('message', (event) => {
         if (event.data.type === 'CACHE_CLEARED') {
@@ -169,14 +123,10 @@
         navigator.serviceWorker.register('./service-worker.js')
           .then(reg => {
             console.log('✅ Service Worker v4 registrado');
-            
-            // Verificar atualizações a cada 1 minuto (em vez de 5)
             setInterval(() => {
               console.log('🔄 Verificando atualizações...');
               reg.update();
             }, 1 * 60 * 1000);
-            
-            // Atualizar imediatamente ao carregar
             reg.update();
           })
           .catch(err => console.error('❌ Erro no Service Worker:', err));
@@ -185,90 +135,4 @@
   </script>
 </body>
 </html>
-<button class="glass-button text-white font-medium py-3 rounded-xl flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform duration-200 hover:bg-white/20" onclick="window.location='./checklist.html'">
-<span class="material-symbols-outlined text-[var(--gold-light)]">checklist</span>
-<span class="text-sm">Checklist</span>
-</button>
-<button class="glass-button text-white font-medium py-3 rounded-xl flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform duration-200 hover:bg-white/20" onclick="window.location='./wallpapers.html'">
-<span class="material-symbols-outlined text-[var(--gold-light)]">image</span>
-<span class="text-sm">Wallpapers</span>
-</button>
-</div>
-<div class="flex gap-2 text-[var(--gold-light)] opacity-60">
-<span class="w-2 h-2 rounded-full bg-current"></span>
-<span class="w-2 h-2 rounded-full bg-gray-600"></span>
-<span class="w-2 h-2 rounded-full bg-gray-600"></span>
-<span class="w-2 h-2 rounded-full bg-gray-600"></span>
-<span class="w-2 h-2 rounded-full bg-gray-600"></span>
-</div>
-</div>
-</main>
-<script>
-  // 🧹 LIMPEZA AGRESSIVA: Remover cache antigo e localStorage desatualizado
-  (async function clearOldCache() {
-    try {
-      // Listar todos os caches
-      const cacheNames = await caches.keys();
-      console.log('📦 Caches encontrados:', cacheNames);
-      
-      // Remover qualquer cache que não seja v3
-      const oldCaches = cacheNames.filter(name => 
-        name.includes('ambiente-espiritual') && !name.includes('v3')
-      );
-      
-      if (oldCaches.length > 0) {
-        console.log('🧹 Limpando caches antigos:', oldCaches);
-        await Promise.all(oldCaches.map(name => caches.delete(name)));
-        console.log('✅ Caches antigos removidos com sucesso!');
-      }
-    } catch (error) {
-      console.error('Erro ao limpar cache:', error);
-    }
-    
-    // Limpar localStorage de versões anteriores
-    try {
-      // Manter apenas o checklist moderno
-      const allKeys = Object.keys(localStorage);
-      const keysToKeep = ['ambiente-espiritual-checklist'];
-      
-      allKeys.forEach(key => {
-        if (!keysToKeep.includes(key) && key.includes('ambiente') || key.includes('checklist')) {
-          console.log('🧹 Removendo localStorage:', key);
-          localStorage.removeItem(key);
-        }
-      });
-    } catch (error) {
-      console.error('Erro ao limpar localStorage:', error);
-    }
-  })();
 
-  // Notificar quando Service Worker envia mensagem de limpeza
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.addEventListener('message', (event) => {
-      if (event.data.type === 'CACHE_CLEARED') {
-        console.log('✨ Service Worker:', event.data.message);
-        // Recarregar a página para aplicar mudanças
-        if (confirm('App foi atualizado! Deseja recarregar a página?')) {
-          location.reload();
-        }
-      }
-    });
-  }
-  
-  // Registrar Service Worker
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(reg => {
-          console.log('✅ Service Worker registrado:', reg.scope);
-          
-          // Verificar atualizações a cada 5 minutos
-          setInterval(() => {
-            reg.update();
-          }, 5 * 60 * 1000);
-        })
-        .catch(err => console.error('❌ Erro no Service Worker:', err));
-    });
-  }
-</script>
-</body></html>

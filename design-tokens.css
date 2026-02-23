@@ -462,6 +462,202 @@ a:focus-visible {
 }
 
 /* ============================================
+   CAPA IMERSIVA EM TELA CHEIA (PWA HOME)
+   ========================================== */
+.pwa-home-cover {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 24px 40px;
+  
+  /* Imagem de fundo com degradê para leitura */
+  background: linear-gradient(
+      to bottom,
+      rgba(26, 34, 56, 0.2) 0%,
+      rgba(26, 34, 56, 0.95) 80%,
+      var(--c-azul-marinho) 100%
+    ),
+    url('./icons/capa\ \(2\).png');
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Cabeçalho da Capa */
+.cover-header {
+  text-align: center;
+  margin-top: 4vh;
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.cover-tag {
+  font-family: var(--f-texto);
+  color: var(--c-dourado-suave);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cover-title {
+  font-family: var(--f-titulo);
+  color: var(--c-bg-areia);
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.cover-subtitle {
+  font-family: var(--f-titulo);
+  color: var(--c-dourado-suave);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Área de Ações (Rodapé da Capa) */
+.cover-actions {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: slideUp var(--transition-base) ease-out;
+}
+
+.cover-desc {
+  font-family: var(--f-texto);
+  color: rgba(245, 242, 233, 0.85);
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Botão Principal da Capa */
+.btn-iniciar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: var(--c-bg-areia) !important;
+  color: var(--c-azul-marinho) !important;
+  border: none !important;
+  border-radius: 30px;
+  margin-bottom: 24px;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-iniciar:hover {
+  background-color: var(--c-dourado-suave) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.btn-iniciar:active {
+  transform: scale(0.98);
+}
+
+.btn-iniciar .arrow {
+  margin-left: 12px;
+  color: var(--c-dourado-suave);
+}
+
+.btn-iniciar:hover .arrow {
+  color: var(--c-azul-marinho);
+}
+
+/* Botões Glassmorphism (Checklist e Wallpapers) */
+.home-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.action-btn-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 176, 138, 0.3);
+  border-radius: 16px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.action-btn-glass:hover {
+  background: rgba(200, 176, 138, 0.15);
+  border-color: rgba(200, 176, 138, 0.6);
+  box-shadow: 0 8px 24px rgba(200, 176, 138, 0.2);
+  transform: translateY(-4px);
+}
+
+.action-btn-glass:active {
+  background: rgba(200, 176, 138, 0.25);
+  transform: scale(0.96);
+}
+
+.action-btn-glass img {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 12px;
+  /* Transforma ícones pretos em Areia */
+  filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(541%) hue-rotate(320deg) brightness(105%) contrast(94%);
+}
+
+.action-btn-glass span {
+  font-family: var(--f-texto);
+  color: var(--c-bg-areia);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Animações para capa */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile: Esconder bottom-bar na tela de capa */
+.pwa-home-cover ~ .bottom-bar {
+  display: none;
+}
+
+/* ============================================
    MODO PDF / IMPRESSÃO (A4)
    ========================================== */
 @media print {
