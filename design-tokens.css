@@ -616,8 +616,8 @@ a:focus-visible {
 .action-btn-glass img,
 .action-btn-glass svg {
   /* TRAVA O TAMANHO DO ÍCONE PARA FICAR PEQUENO E DELICADO */
-  width: 32px !important;
-  height: 32px !important;
+  width: 20px !important;
+  height: 20px !important;
   margin-bottom: 16px; /* Espaço entre o ícone e o texto */
   
   /* Se o dev estiver usando SVG no HTML, forçamos a linha fina */
