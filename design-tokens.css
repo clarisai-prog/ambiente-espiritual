@@ -586,12 +586,12 @@ a:focus-visible {
 }
 
 .action-btn-glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03); /* Fundo ainda mais sutil */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 176, 138, 0.3);
+  border: 1px solid rgba(200, 176, 138, 0.25); /* Borda Dourada bem delicada */
   border-radius: 16px;
-  padding: 20px 12px;
+  padding: 24px 12px; /* Mais altura, para dar respiro ao ícone */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -613,19 +613,27 @@ a:focus-visible {
   transform: scale(0.96);
 }
 
-.action-btn-glass img {
-  width: 28px;
-  height: 28px;
-  margin-bottom: 12px;
-  /* Transforma ícones pretos em Areia */
+.action-btn-glass img,
+.action-btn-glass svg {
+  /* TRAVA O TAMANHO DO ÍCONE PARA FICAR PEQUENO E DELICADO */
+  width: 32px !important;
+  height: 32px !important;
+  margin-bottom: 16px; /* Espaço entre o ícone e o texto */
+  
+  /* Se o dev estiver usando SVG no HTML, forçamos a linha fina */
+  stroke-width: 1.2px !important;
+  stroke: var(--c-dourado-suave);
+  fill: none !important; /* Remove o preenchimento pesado se for SVG */
+  
+  /* Para PNGs/ícones pretos, transforma em Areia */
   filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(541%) hue-rotate(320deg) brightness(105%) contrast(94%);
 }
 
 .action-btn-glass span {
   font-family: var(--f-texto);
   color: var(--c-bg-areia);
-  font-weight: 500;
-  font-size: 0.85rem;
+  font-weight: 400; /* Removido o negrito pesado */
+  font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
 
