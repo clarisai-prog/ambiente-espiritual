@@ -9,53 +9,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="stylesheet" href="./design-tokens.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-        :root {
-            --bg-dark: #1C1C1E;
-            --text-gold: #D4AF37;
-            --text-light: #F2F2F7;
-            --text-dim: #AEAEB2;
-            --card-bg: #2C2C2E;
-            --accent-gold: #C5A028;
-        }
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-        h1, h2, h3, .serif-font {
-            font-family: 'Playfair Display', serif;
-        }.video-container {
-            height: 40vh;
-            width: 100%;
-            background-color: black;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 50;
-        }
-        .scroll-content {
-            margin-top: 40vh;
-            min-height: 60vh;
-            padding-bottom: 80px;}
-        .gold-border-card {
-            border: 1px solid var(--text-gold);
-            background: linear-gradient(145deg, rgba(44,44,46,0.9), rgba(28,28,30,0.95));
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #48484A;
-            border-radius: 4px;
-        }
-    </style>
+<style>
+  body { background-color: var(--color-primary-navy); color: var(--color-bg-white); }
+  .video-container { height: 40vh; width: 100%; background-color: black; position: fixed; top: 0; left: 0; z-index: 50; }
+  .scroll-content { margin-top: 40vh; min-height: 60vh; padding-bottom: 80px; }
+  .gold-border-card { border: 1px solid var(--color-primary-gold); background: linear-gradient(145deg, rgba(25,32,51,0.9), rgba(20,25,40,0.95)); }
+</style>
 <style>
     body {
       min-height: max(884px, 100dvh);

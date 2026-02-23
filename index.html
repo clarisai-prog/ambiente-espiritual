@@ -9,36 +9,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="stylesheet" href="./design-tokens.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-        :root {
-            --gold-primary: #D4AF37;
-            --gold-light: #F4E295;
-            --charcoal-dark: #1A1A1A;
-            --charcoal-overlay: rgba(26, 26, 26, 0.6);
-        }
-        body {
-            font-family: 'Lato', sans-serif;
-        }
-        .font-serif-elegant {
-            font-family: 'Playfair Display', serif;
-        }
-        .glass-button {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        .text-gold-gradient {
-            background: linear-gradient(to right, #D4AF37, #F4E295, #D4AF37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-        }
-    </style>
+<style>
+ body { background: var(--color-primary-navy); color: var(--color-bg-white); }
+ .glass-button { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
+ .text-gold-gradient { color: var(--color-primary-gold); }
+</style>
 <style>
     body {
       min-height: max(884px, 100dvh);

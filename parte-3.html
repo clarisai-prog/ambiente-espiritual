@@ -9,44 +9,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="stylesheet" href="./design-tokens.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-        :root {
-            --bg-color: #0f0f11;
-            --surface-color: #1a1a1d;
-            --surface-light: #252529;
-            --accent-color: #d4b483;--accent-dim: #8a7350;
-            --text-primary: #f2f2f2;
-            --text-secondary: #a1a1aa;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-        .font-serif {
-            font-family: 'Lora', serif;
-        }
-        .ios-statusbar {
-            height: 44px;
-            width: 100%;
-        }
-        .ios-home-indicator {
-            height: 34px;
-            width: 100%;
-        }.no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+<style>
+  body { background-color: var(--color-primary-navy); color: var(--color-bg-white); }
+</style>
 <style>
     body {
       min-height: max(884px, 100dvh);

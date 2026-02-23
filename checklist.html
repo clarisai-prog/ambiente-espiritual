@@ -9,55 +9,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+    <link rel="stylesheet" href="./design-tokens.css">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style type="text/tailwindcss">
-        :root {
-            --primary-color: #6B4F4F;
-            --secondary-color: #EED6C4;
-            --accent-color: #483C32;
-            --text-color: #2D2424;
-            --light-bg: #FDFBF7;
-            --card-bg: #FFFFFF;
-        }
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
-        .glass-button {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        .checkbox-container input {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .checkbox-container input:checked {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        .checkbox-container input:checked::after {
-            content: '✓';
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    <style>
+        body { background-color: var(--color-bg-light); color: var(--color-text-dark); }
+        .checkbox-container input { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border: 2px solid var(--color-primary-navy); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+        .checkbox-container input:checked { background-color: var(--color-primary-navy); color: white; }
+    </style>
     </style>
 </head>
 <body class="antialiased pb-20">

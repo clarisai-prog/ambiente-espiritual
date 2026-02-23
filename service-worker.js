@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ambiente-espiritual-v2';
+const CACHE_NAME = 'ambiente-espiritual-v3';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -9,6 +9,7 @@ const ASSETS_TO_CACHE = [
   './parte-5.html',
   './checklist.html',
   './wallpapers.html',
+  './design-tokens.css',
   './manifest.json',
   './assets/screen-1.png',
   './assets/screen-2.png',
@@ -16,7 +17,9 @@ const ASSETS_TO_CACHE = [
   './assets/screen-4.png',
   './assets/screen-5.png',
   './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icons/icon-512.png',
+  'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap',
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap'
 ];
 
 // Install event - cache all assets

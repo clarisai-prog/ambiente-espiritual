@@ -9,32 +9,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="stylesheet" href="./design-tokens.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-        :root {
-            --primary-color: #6B4F4F;--secondary-color: #EED6C4;--accent-color: #483C32;--text-color: #2D2424;--light-bg: #FDFBF7;--card-bg: #FFFFFF;
-        }
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
-        .checkbox-container input:checked + div {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        .checkbox-container input:checked + div svg {
-            display: block;
-        }
-        .custom-checkbox {
-            transition: all 0.2s ease-in-out;
-        }
-    </style>
+<style>
+  .checkbox-container input:checked + div { background-color: var(--color-primary-gold); border-color: var(--color-primary-gold); }
+</style>
 <style>
     body {
       min-height: max(884px, 100dvh);
