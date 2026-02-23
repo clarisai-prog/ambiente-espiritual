@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1A2238">
+  <title>Ambiente Espiritual - Tutorial Abertura</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ambiente Espiritual">
+  
+  <!-- Importando o CSS Global -->
+  <link rel="stylesheet" href="./design-tokens.css">
+  
+  <style>
+    /* CABEÇALHO DO TUTORIAL */
+    .tutorial-header {
+      text-align: center;
+      margin-bottom: 32px;
+      margin-top: 16px;
+    }
+
+    .tutorial-header .tag {
+      color: var(--c-dourado-suave);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .tutorial-header h1 {
+      font-family: var(--f-titulo);
+      color: var(--c-azul-marinho);
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    /* PLAYER DE VÍDEO PREMIUM (Mantém 16:9 Landscape travado) */
+    .video-premium-wrapper {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: var(--c-azul-marinho);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(200, 176, 138, 0.4);
+      box-shadow: 0 12px 32px rgba(26, 34, 56, 0.1);
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .video-premium-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      outline: none;
+    }
+
+    /* RESUMO DO ROTEIRO ABAIXO DO VÍDEO */
+    .tutorial-script-card {
+      background-color: var(--c-bg-card);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(200, 176, 138, 0.2);
+      margin-bottom: 24px;
+    }
+
+    .tutorial-script-card p {
+      font-size: 0.95rem;
+      color: var(--c-texto-apoio);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .tutorial-script-card p:last-child {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: var(--c-azul-marinho);
+    }
+
+    /* Remover padding inferior para acomodar bottom-bar */
+    .app-container {
+      padding-bottom: 120px;
+    }
+  </style>
+</head>
+<body style="background-color: var(--c-bg-areia); font-family: var(--f-texto); color: var(--c-texto-apoio); margin: 0;">
+
+  <main class="app-container">
+    
+    <!-- Título do Tutorial -->
+    <header class="tutorial-header">
+      <span class="tag">Passo 1 de 5</span>
+      <h1>Arrume a Casa<br>para Deus Entrar</h1>
+    </header>
+
+    <!-- Player de Vídeo Premium -->
+    <div class="video-premium-wrapper">
+      <!-- Poster é a imagem de capa antes do usuário dar play -->
+      <video 
+        controls 
+        controlsList="nodownload" 
+        poster="./icons/capa (2).png"
+        preload="metadata">
+        
+        <!-- Caminho do vídeo no projeto -->
+        <source src="./assets/videos/guia-canto-sagrado.mp4" type="video/mp4">
+        
+        Seu navegador não suporta a reprodução deste vídeo. Por favor, atualize seu navegador.
+      </video>
+    </div>
+
+    <!-- Transcrição / Resumo do Roteiro -->
+    <article class="tutorial-script-card">
+      <p>"Muitas vezes, a nossa vida de oração não avança por um motivo simples: o ambiente não ajuda. A casa é barulhenta e o celular não para de apitar."</p>
+      <p>Neste guia, você aprenderá a criar o seu <strong>'canto sagrado'</strong>, a estabelecer uma rotina que te liberta e a usar a tecnologia a seu favor.</p>
+      <p style="font-style: italic; color: var(--c-dourado-suave); margin-top: 24px;">Está pronto para dar o primeiro passo? Dê play no vídeo acima... e vamos começar.</p>
+    </article>
+
+  </main>
+
+  <!-- Navegação Inferior -->
+  <nav class="bottom-bar">
+    <a href="./index.html" class="btn btn-secundario" style="flex: 1;">
+      <span class="material-symbols-outlined">arrow_back</span> Voltar
+    </a>
+    <a href="./parte-2.html" class="btn btn-primario" style="flex: 2;">
+      Próximo <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </nav>
+
+  <script>
+    // 🧹 LIMPEZA AGRESSIVA: Cache + localStorage + dados antigos
+    (async function aggressiveClearup() {
+      try {
+        const cacheNames = await caches.keys();
+        for (const name of cacheNames) {
+          if (name !== 'ambiente-espiritual-v4') {
+            await caches.delete(name);
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao limpar cache:', error);
+      }
+    })();
+
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => {
+            console.log('✅ Service Worker registrado');
+            setInterval(() => { reg.update(); }, 1 * 60 * 1000);
+            reg.update();
+          })
+          .catch(err => console.error('❌ Erro no Service Worker:', err));
+      });
+    }
+  </script>
+
+</body>
+</html>
